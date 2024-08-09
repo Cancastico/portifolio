@@ -14,7 +14,7 @@ export default function Header() {
           <p className="font-ubuntu text-[4rem] text-primary ">Programador</p>
         </div>
         {/* CONTAINER */}
-        <div className="flex flex-row gap-10 w-full justify-center">
+        <div className="flex flex-row sm:flex-row gap-10 w-full justify-center">
           {/* CARD SECTION */}
           <div>
             {/* PERSONAL CARD */}
