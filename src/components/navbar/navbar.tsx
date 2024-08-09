@@ -1,9 +1,7 @@
-import { Ubuntu } from "next/font/google";
+import { DiscordLogoIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
+
 export default function Navbar() {
-  const ubuntu = Ubuntu({
-    subsets: ["latin"],
-    weight: ["400","500", "700"], // Especifique os pesos que você deseja usar
-  });
+
 
   return (
     <header className="flex flex-row justify-between items-center w-full px-[10%] h-20 bg-background-primary">
@@ -30,11 +28,13 @@ export default function Navbar() {
         </ul>
 
         <ul className="flex flex-row gap-10">
-          <li>
-            <a className={`text-sm ${ubuntu.className} text-black hover:text-primary hover:underline font-medium transition-all duration-100`} href="#">Discord</a>
+          <li className="hover:text-primary flex gap-2 hover:underline duration-100">
+            <DiscordLogoIcon></DiscordLogoIcon>
+            <a className={`text-sm text-black hover:text-primary hover:underline font-medium transition-all duration-100`} href="#">Discord</a>
           </li>
-          <li>
-            <a className={`text-sm ${ubuntu.className} text-black hover:text-primary hover:underline font-medium transition-all duration-100`} href="#">Github</a>
+          <li className="hover:text-primary flex gap-2 hover:underline duration-100">
+            <GitHubLogoIcon />
+            <a className={`text-sm text-black hover:text-primary font-medium transition-all duration-100`} href="#">Github</a>
           </li>
         </ul>
       </nav>

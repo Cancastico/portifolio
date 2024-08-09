@@ -1,47 +1,118 @@
-import { MailIcon } from "lucide-react";
+import { Briefcase, Link, Mail, MailIcon, MapPin, PinIcon } from "lucide-react";
 import Navbar from "../navbar/navbar";
+import Image from "next/image";
+import Perfil from "@/../public/ImagemPerfil.jpg"
 
 export default function Header() {
-    return (
-        <div className="flex flex-col w-full">
-            <Navbar></Navbar>
-            <header className="flex flex-col items-center">
-                {/* TITLE */}
-                <div>
-                    <p>Programador</p>
-                </div>
-                {/* CONTAINER */}
-                <div>
-                    {/* CARD SECTION */}
-                    <div>
-                        {/* PERSONAL CARD */}
-                        <div className="border-primary border-2 border-b-0 border-r-0">
-                            <div className="border-black border-2">
-
-                            </div>
-                        </div>
-                    </div>
-                    {/* CONTENT SECTION */}
-                    <div>
-                        <div className="text-3xl font-semibold">
-                            <p>Olá</p>
-                            <p>Sou o <span className="text-primary">Avelino</span>,</p>
-                            <p>Programador Full-Stack</p>
-                        </div>
-                        <div>
-                            <p>
-                                Te ajudo a colocar suas ideias na web. <br />
-                                Você achou o programador que fará suas ideias se tornarem realidade!
-                            </p>
-                        </div>
-                        <div className="flex flex-row gap-2 items-center">
-                            <a href="#" className="font-">Vamos Conversar</a>
-                            <a href="" className="p-2 bg-yellow-950 hover:bg-yellow-950/80 rounded-full text-primary-foreground transition-all"><MailIcon></MailIcon></a>
-                        </div>
-                    </div>
-
-                </div>
-            </header>
+  return (
+    <div className="flex flex-col w-full">
+      <Navbar></Navbar>
+      <header className="flex flex-col items-center bg-background-primary pb-[2rem]">
+        
+        {/* TITLE */}
+        <div>
+          <p className="font-ubuntu text-[4rem] text-primary ">Programador</p>
         </div>
-    )
+        {/* CONTAINER */}
+        <div className="flex flex-row gap-10 w-full justify-center">
+          {/* CARD SECTION */}
+          <div>
+            {/* PERSONAL CARD */}
+            <div className="border-primary border-4 border-b-0 border-r-0 rounded-ss-[8rem] h-[25rem]   w-[18rem]">
+              <div className="border-black border-2 rounded-ss-[8rem] rounded-ee-[8rem] h-[25rem] w-full flex flex-col items-center pt-12 gap-3">
+
+                <div className="flex flex-col items-center">
+                  <Image src={Perfil} alt="Minha Foto" className="w-[6rem] h-[6rem] object-cover rounded-full border-primary border-2" />
+                  <h1 className="text-3xl font-medium">Avelino</h1>
+                  <p className="text-sm">programador full-stack</p>
+                </div>
+
+                <ul className="text-sm flex flex-col gap-3">
+                  <li className="flex flex-row gap-1 text-primary items-center">
+                    <Mail size={16} />
+                    <p className="text-black">carlosaaugusto2002@outlook.com</p>
+                  </li>
+                  <li className="flex flex-row gap-1 text-primary items-center">
+                    <MapPin size={16} />
+                    <p className="text-black">Brasil</p>
+                  </li>
+                  <li className="flex flex-row gap-1 text-primary items-center">
+                    <Briefcase size={16} />
+                    <p className="text-black">Full-time / Freelancer</p>
+                  </li>
+                  <li className="flex flex-row gap-1 text-primary items-center">
+                    <Link size={16} />
+                    <a className="text-black" href="#">www.cancastico.com.br</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          {/* CONTENT SECTION */}
+          <div className="flex flex-col gap-2">
+            {/* SUBTITLE */}
+            <div>
+              <p className="text-sm text-primary font-semibold">{`<h1>`}</p>
+              <div className="text-[2.5rem] leading-[2.4rem] font-medium font-ubuntu pl-3">
+                <p>Olá</p>
+                <p>Sou o <span className="text-primary">Avelino</span>,</p>
+                <p>Programador Full-Stack</p>
+              </div>
+              <p className="text-sm text-primary font-semibold">{`</h1>`}</p>
+            </div>
+
+            {/* CONTENT */}
+            <div>
+              <p className="text-sm text-primary font-semibold">{`<p>`}</p>
+              <p className="pl-3">
+                Te ajudo a colocar suas ideias na web. <br />
+                Você achou o programador que fará suas ideias se tornarem realidade!
+              </p>
+              <p className="text-sm text-primary font-semibold">{`</p>`}</p>
+            </div>
+
+            {/* CONTAT */}
+            <div>
+              <p className="text-sm text-primary font-semibold">{`<a>`}</p>
+              <div className="flex flex-row gap-2 items-center pl-3">
+                <a href="#" className="font-medium underline hover:text-primary duration-150 text-lg">Venha conversar</a>
+              </div>
+              <p className="text-sm text-primary font-semibold">{`</a>`}</p>
+            </div>
+
+
+          </div>
+
+          {/* EXPERIENCE */}
+          <div className="flex items-center h-[25rem]">
+            <div className="rounded-[3.5rem]font-medium font-ubuntu p-8 ">
+              <p className="!text-sm text-primary font-semibold">{`<ul>`}</p>
+              <ul className="flex flex-col gap-3">
+
+                <li className="pl-3">
+                  <p className="text-sm text-primary font-semibold">{`<li>`}</p>
+                  <p className="text-sm text-primary font-semibold pl-3"><span className="text-black font-normal ">Foco <br />para a Web</span></p>
+                  <p className="text-sm text-primary font-semibold">{`</li>`}</p>
+                </li>
+
+                <li className="pl-3">
+                  <p className="text-sm text-primary font-semibold">{`<li>`}</p>
+                  <p className="text-sm text-primary font-semibold pl-3"><span className="text-black font-normal ">Empenho na <br />sua ideia</span></p>
+                  <p className="text-sm text-primary font-semibold">{`</li>`}</p>
+                </li>
+
+                <li className="pl-3">
+                  <p className="text-sm text-primary font-semibold">{`<li>`}</p>
+                  <p className="text-sm text-primary font-semibold pl-3"><span className="text-black font-normal ">+ de 3 anos de  <br />experiencia</span></p>
+                  <p className="text-sm text-primary font-semibold">{`</li>`}</p>
+                </li>
+              </ul>
+              <p className="text-sm text-primary font-semibold">{`<ul>`}</p>
+            </div>
+          </div>
+
+        </div>
+      </header>
+    </div>
+  )
 }

@@ -1,4 +1,3 @@
-import { Ubuntu } from "next/font/google"
 import type { Config } from "tailwindcss"
 
 const config = {
@@ -14,7 +13,8 @@ const config = {
     fontFamily: {
       ubuntu: [
         '"Ubuntu",sans-serif '
-      ]
+      ],
+      ibmPlexMono: ['"IBM Plex Mono", monospace']
     },
     container: {
       center: true,
@@ -30,7 +30,7 @@ const config = {
         ring: "hsl(var(--ring))",
         background: {
           DEFAULT: "hsl(var(--background))",
-          primary: "#FFF1D6",
+          primary: "#FFF1D644",
         },
         foreground: "hsl(var(--foreground))",
         primary: {
