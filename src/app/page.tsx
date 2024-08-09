@@ -1,10 +1,9 @@
-import Image from 'next/image';
-import Navbar from '../components/navbar/navbar';
+import Header from '@/components/header/header';
 
 export default function Home() {
   return (
     <main className="w-full">
-      <Navbar></Navbar>
+      <Header></Header>
     </main>
   );
 }

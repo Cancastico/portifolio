@@ -1,3 +1,4 @@
+import { Ubuntu } from "next/font/google"
 import type { Config } from "tailwindcss"
 
 const config = {
@@ -7,9 +8,14 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
+    fontFamily: {
+      ubuntu: [
+        '"Ubuntu",sans-serif '
+      ]
+    },
     container: {
       center: true,
       padding: "2rem",
@@ -23,8 +29,8 @@ const config = {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: {
-          DEFAULT:"hsl(var(--background))",
-          primary:"#FFF1D6",
+          DEFAULT: "hsl(var(--background))",
+          primary: "#FFF1D6",
         },
         foreground: "hsl(var(--foreground))",
         primary: {
@@ -55,7 +61,7 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        
+
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -1,4 +1,10 @@
+import { Ubuntu } from "next/font/google";
 export default function Navbar() {
+  const ubuntu = Ubuntu({
+    subsets: ["latin"],
+    weight: ["400","500", "700"], // Especifique os pesos que você deseja usar
+  });
+
   return (
     <header className="flex flex-row justify-between items-center w-full px-[10%] h-20 bg-background-primary">
 
@@ -25,10 +31,10 @@ export default function Navbar() {
 
         <ul className="flex flex-row gap-10">
           <li>
-            <a className="text-black hover:text-primary hover:underline font-medium transition-all duration-100" href="#">Discord</a>
+            <a className={`text-sm ${ubuntu.className} text-black hover:text-primary hover:underline font-medium transition-all duration-100`} href="#">Discord</a>
           </li>
           <li>
-            <a className="text-black hover:text-primary hover:underline font-medium transition-all duration-100" href="#">Github</a>
+            <a className={`text-sm ${ubuntu.className} text-black hover:text-primary hover:underline font-medium transition-all duration-100`} href="#">Github</a>
           </li>
         </ul>
       </nav>
