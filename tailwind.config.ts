@@ -20,7 +20,13 @@ const config = {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
+        smt: { min: "0px", max: "768px" },
+        md: { min: "769px", max: "1023px" },
+        lg: { min: "1024px", max: "1279px" },
+        xl: { min: "1280px", max: "1919px" },
+        gl: { min: "1280px", max: "1920px" },
+        xxl: "1920px",
+        "2xl": "1366px",
       },
     },
     extend: {
