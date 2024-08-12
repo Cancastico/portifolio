@@ -1,4 +1,5 @@
 import About from '@/components/aboutme/aboutme';
+import Footer from '@/components/footer/footer';
 import Header from '@/components/header/header';
 import Projects from '@/components/projects/project';
 import Skills from '@/components/skills/skills';
@@ -10,6 +11,7 @@ export default function Home() {
       <Skills />
       <Projects />
       <About/>
+      <Footer></Footer>
     </main>
   );
 }
