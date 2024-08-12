@@ -17,7 +17,7 @@ export default function Skills() {
         className="pointer-events-none -z-10"
       />
       {/* CONTENT */}
-      <div className="h-[38rem] bg-[#272117]/80 flex flex-col gap-10">
+      <div className="h-[38rem] bg-[#272117]/80 flex flex-col gap-10 pt-10">
         {/* TITLE */}
         <div className='flex-col flex gap-3 items-center'>
           <p className='text-[3rem] text-primary'>Habilidades</p>
