@@ -35,22 +35,22 @@ export default function Skills() {
             <Image
               src={nodeIco}
               alt="Nodejs Background"
-              className="w-[9rem] h-[9rem] rounded-full p-1 bg-white"
+              className="w-[9rem] h-[9rem] rounded-full p-1 bg-[#90c53f]"
             />
             <Image
               src={wordpressIco}
               alt="Nodejs Background"
-              className="w-[9rem] h-[9rem] rounded-full p-1 bg-white"
+              className="w-[9rem] h-[9rem] rounded-full p-1 bg-[#20749b]"
             />
             <Image
               src={reactIco}
               alt="Nodejs Background"
-              className="w-[9rem] h-[9rem] rounded-full p-1 bg-white"
+              className="w-[9rem] h-[9rem] rounded-full p-1 bg-[#20232a]"
             />
             <Image
               src={mysqlIco}
               alt="Nodejs Background"
-              className="w-[9rem] h-[9rem] object-cover rounded-full border-[0.25rem] border-white bg-white"
+              className="w-[9rem] h-[9rem] object-cover rounded-full border-[0.25rem] border-[#4479a1]  bg-[#4479a1]"
             />
           </div>
         </div>
@@ -61,7 +61,7 @@ export default function Skills() {
             <Image
               src={nextIco}
               alt="Nodejs Background"
-              className="w-[9rem] h-[9rem] rounded-full p-1 bg-white"
+              className="w-[9rem] h-[9rem] rounded-full p-1 bg-[#f4f5f5]"
             />
             <Image
               src={nestIco}

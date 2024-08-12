@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from "next/image"
 import todo from '@/../public/Projetos/todo-task.png';
 import { Button } from "../ui/button";
+import { Separator } from "../ui/separator";
 
 export default function Projects() {
 
@@ -33,13 +34,13 @@ export default function Projects() {
                   src={project.imagem}
                   alt="todo image"
                 />
-                <div className="w-full p-3 bg-white dark:bg-zinc-500">
-                  <h1 className="w-full px-3 font-semibold text-lg bg-white dark:bg-zinc-500"> {project.title}</h1>
-                  <p className="w-[100%] px-3 bg-white dark:bg-zinc-500 text-justify">{project.description}</p>
-                </div>
-                <div className="w-full flex flex-col items-end pb-5 pr-5 rounded-b-lg dark:bg-zinc-500">
-
-                  <Button className="w-[9rem] text-white font-semibold hover:bg-primary/70 transition-all ease-in-out"> Acessar </Button>
+                <div className="w-full pt-3 pb-0 bg-white dark:bg-zinc-500 rounded-b-lg">
+                  <h1 className="w-full px-3 font-semibold text-lg dark:text-white bg-white dark:bg-zinc-500"> {project.title}</h1>
+                  <p className="w-[100%] px-3 pb-2 bg-white dark:text-white dark:bg-zinc-500 text-justify">{project.description}</p>
+                  <Separator className="w-full bg-zinc-600"></Separator>
+                  <div className="w-full flex flex-col items-end py-2 pr-5 rounded-b-lg bg-white dark:bg-zinc-500">
+                    <Button className="w-[9rem] text-white font-semibold hover:bg-primary/70 transition-all ease-in-out"> Acessar </Button>
+                  </div>
                 </div>
               </a>
             </div>

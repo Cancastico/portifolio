@@ -8,7 +8,7 @@ export default function Header() {
     <div className="flex flex-col w-full">
       <Navbar></Navbar>
       <header className="flex flex-col items-center bg-background-primary dark:bg-background-dark pb-[2rem] min-h-[80dvh] justify-center">
-        
+
         {/* TITLE */}
         <div>
           <p className="font-ubuntu text-[3rem] md:text-[4rem] text-primary">Programador</p>
@@ -54,7 +54,7 @@ export default function Header() {
             <div>
               <p className="text-sm text-primary font-semibold dark:text-white">{`<h1>`}</p>
               <div className="text-[2.5rem] leading-[2.4rem] font-medium font-ubuntu pl-3 ">
-                <p  className="dark:text-white">Olá</p>
+                <p className="dark:text-white">Olá</p>
                 <p className="dark:text-white">Sou o <span className="text-primary ">Avelino</span>,</p>
                 <p className="dark:text-white">Programador Full-Stack</p>
               </div>
@@ -91,7 +91,7 @@ export default function Header() {
 
                 <li className="pl-3">
                   <p className="text-sm text-primary font-semibold">{`<li>`}</p>
-                  <p className="text-sm text-primary font-semibold pl-3"><span className="text-black dark:text-white font-normal text-lg ">Foco para a Web</span></p>
+                  <p className="text-sm text-primary font-semibold pl-3"><span className="md:text-black text-white dark:text-white font-normal text-lg ">Foco para a Web</span></p>
                   <p className="text-sm text-primary font-semibold">{`</li>`}</p>
                 </li>
 

@@ -6,6 +6,7 @@
 import Link from "next/link"
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
 import { useTheme } from "@/contexts/theme";
+import ThemingButton from "../themingButton/themingButton";
 
 export default function Footer() {
   const { theme, setTheme } = useTheme();
@@ -45,19 +46,10 @@ export default function Footer() {
           <h3 className="font-semibold">Sobre</h3>
           <p>Este é o meu portfólio pessoal, onde você pode encontrar informações sobre meus projetos e habilidades.</p>
         </div>
-        <div className="grid gap-1">
-          <h3 className="font-semibold">Tema</h3>
+        <div className="flex flex-row items-center gap-2">
+          <h3 className="font-semibold">Tema : </h3>
           <div className="flex items-center gap-2">
-            <Select onValueChange={handleChange} value={theme}>
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Tema" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="light">Claro</SelectItem>
-                <SelectItem value="dark">Escuro</SelectItem>
-                <SelectItem value="system">Sistema</SelectItem>
-              </SelectContent>
-            </Select>
+            <ThemingButton />
           </div>
         </div>
       </div>
