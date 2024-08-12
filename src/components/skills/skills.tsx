@@ -1,5 +1,10 @@
 import Image from 'next/image';
 import skills from '@/../public/skillsBackground.png';
+import nodeIco from '@/../public/NodeJsIco.svg'
+import wordpressIco from '@/../public/WordpressIco.svg'
+import reactIco from '@/../public/reactIco.svg'
+import nextIco from '@/../public/NextJsIco.svg'
+import nestIco from '@/../public/nestJsIco.svg'
 
 export default function Skills() {
   return (
@@ -12,7 +17,7 @@ export default function Skills() {
         className="pointer-events-none -z-10"
       />
       {/* CONTENT */}
-      <div className="h-[38rem] bg-[#272117]/80 ">
+      <div className="h-[38rem] bg-[#272117]/80 flex flex-col gap-10">
         {/* TITLE */}
         <div className='flex-col flex gap-3 items-center'>
           <p className='text-[3rem] text-primary'>Habilidades</p>
@@ -22,10 +27,43 @@ export default function Skills() {
             <div className='h-4 w-4 bg-primary rounded-full'></div>
           </div>
         </div>
-        {/* SKILLS */}
-        <div>
-          <p>Desenvolvimento Web:</p>
-          <div></div>
+        {/* LANGUAGES */}
+        <div className='w-full flex flex-col items-center gap-4'>
+          <p className='text-white text-lg font-semibold'>Desenvolvimento Web:</p>
+          <div className='flex flex-row gap-6'>
+            <Image
+              src={nodeIco}
+              alt="Nodejs Background"
+              className="w-[9rem] h-[9rem] rounded-full p-1 bg-white"
+            />
+            <Image
+              src={wordpressIco}
+              alt="Nodejs Background"
+              className="w-[9rem] h-[9rem] rounded-full p-1 bg-white"
+            />
+            <Image
+              src={reactIco}
+              alt="Nodejs Background"
+              className="w-[9rem] h-[9rem] rounded-full p-1 bg-white"
+            />
+          </div>
+        </div>
+        {/* FRAMEWORKS */}
+        <div className='w-full flex flex-col items-center gap-4'>
+          <p className='text-white text-lg font-semibold'>Frameworks:</p>
+          <div className='flex flex-row gap-6'>
+            <Image
+              src={nextIco}
+              alt="Nodejs Background"
+              className="w-[9rem] h-[9rem] rounded-full p-1 bg-white"
+            />
+            <Image
+              src={nestIco}
+              alt="Nodejs Background"
+              className="w-[9rem] h-[9rem] rounded-full p-1 bg-white"
+            />
+
+          </div>
         </div>
       </div>
     </section>
