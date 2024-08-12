@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-ibmPlexMono`}>{children}</body>
+      <body className={`font-ibmPlexMono overflow-y-auto scroll-smooth scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-w-1 scrollbar scrollbar-track-transparent scrollbar-thumb-primary hover:scrollbar-track-[#f1f5f9]`}>{children}</body>
     </html>
   );
 }

@@ -85,7 +85,7 @@ export default function Header() {
 
           {/* EXPERIENCE */}
           <div className="flex items-center">
-            <div className="font-medium font-ubuntu p-8 bg-yellow-900 mx-auto md:bg-transparent md:mx-0 w-[90%] md:w-fit ">
+            <div className="font-medium font-ubuntu p-8 bg-slate-800 mx-auto md:bg-transparent md:mx-0 w-[90%] md:w-fit ">
               <p className="!text-sm text-primary font-semibold">{`<ul>`}</p>
               <ul className="flex flex-col gap-3">
 

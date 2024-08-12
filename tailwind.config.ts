@@ -36,7 +36,7 @@ const config = {
         ring: "hsl(var(--ring))",
         background: {
           DEFAULT: "hsl(var(--background))",
-          primary: "#FFF1D644",
+          primary: "#d9d9d9",
         },
         foreground: "hsl(var(--foreground))",
         primary: {
@@ -93,7 +93,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"),require('tailwind-scrollbar')({ preferredStrategy: 'pseudoelements', nocompatible: true })],
 } satisfies Config
 
 export default config
