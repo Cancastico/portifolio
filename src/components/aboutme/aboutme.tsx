@@ -14,7 +14,7 @@ export default function About() {
         />
         {/* CONTENT */}
 
-        <div className="bg-slate-800/90 flex flex-col gap-10 py-12 h-full">
+        <div className="bg-[#010021]/70 dark:bg-[#15282E]/90 flex flex-col gap-10 py-12 h-full">
           <div className="px-[1rem] md:px-[5rem]">
             <p className="text-sm text-primary font-semibold">{`<h1>`}</p>
             <p className="text-[2.5rem] text-primary font-light pl-3 font-ubuntu">Sobre mim</p>

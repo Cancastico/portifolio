@@ -13,7 +13,7 @@ export default function Projects() {
     },
   ]
   return (
-    <div className="bg-white flex flex-col justify-center w-full items-center py-10 px-10" >
+    <div className="bg-background-primary dark:bg-background-dark flex flex-col justify-center w-full items-center py-10 px-10" >
       <div className="flex items-center gap-3">
         <p className="text-sm text-primary font-semibold">{`<h1>`}</p>
         <p className="text-[2.5rem] text-primary font-light font-ubuntu">Meus projetos</p>
@@ -22,7 +22,7 @@ export default function Projects() {
       <div className="py-10 flex gap-10 flex-wrap justify-evenly items-start">
         {projects.map((project, index) => {
           return (
-            <div key={index} className="w-[20rem] rounded-lg   shadow-md shadow-black/30 border-slate-400 border-[1px] transition-all duration-300 ease-in-out transform hover:scale-105 hover:cursor-pointer">
+            <div key={index} className="w-[20rem] rounded-lg   shadow-lg shadow-black/30 dark:shadow-white/10 dark:border-slate-700 border-slate-400 border-[1px] transition-all duration-300 ease-in-out transform hover:scale-105 hover:cursor-pointer">
               <a
                 target="_blank"
                 href={project.link}
@@ -33,11 +33,11 @@ export default function Projects() {
                   src={project.imagem}
                   alt="todo image"
                 />
-                <div className="w-full p-3 bg-white rounded-b-lg">
-                  <h1 className="w-full px-3 font-semibold text-lg bg-white rounded-b-lg"> {project.title}</h1>
-                  <p className="w-[100%] px-3 bg-white rounded-b-lg text-justify">{project.description}</p>
+                <div className="w-full p-3 bg-white dark:bg-zinc-500">
+                  <h1 className="w-full px-3 font-semibold text-lg bg-white dark:bg-zinc-500"> {project.title}</h1>
+                  <p className="w-[100%] px-3 bg-white dark:bg-zinc-500 text-justify">{project.description}</p>
                 </div>
-                <div className="w-full flex flex-col items-end pb-5 pr-5">
+                <div className="w-full flex flex-col items-end pb-5 pr-5 rounded-b-lg dark:bg-zinc-500">
 
                   <Button className="w-[9rem] text-white font-semibold hover:bg-primary/70 transition-all ease-in-out"> Acessar </Button>
                 </div>

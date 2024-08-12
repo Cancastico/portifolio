@@ -5,10 +5,16 @@
  */
 import Link from "next/link"
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
+import { useTheme } from "@/contexts/theme";
 
 export default function Footer() {
+  const { theme, setTheme } = useTheme();
+  const handleChange = (value: string) => {
+    setTheme(value);
+  };
+
   return (
-    <footer className="bg-muted p-6 md:py-12 w-full">
+    <footer className="bg-muted p-6 md:py-12 w-full dark:text-white">
       <div className="container max-w-7xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-sm">
         <div className="grid gap-1">
           <h3 className="font-semibold">Contato</h3>
@@ -42,7 +48,7 @@ export default function Footer() {
         <div className="grid gap-1">
           <h3 className="font-semibold">Tema</h3>
           <div className="flex items-center gap-2">
-            <Select>
+            <Select onValueChange={handleChange} value={theme}>
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Tema" />
               </SelectTrigger>
@@ -59,7 +65,7 @@ export default function Footer() {
   )
 }
 
-function DiscIcon(props:any) {
+function DiscIcon(props: any) {
   return (
     <svg
       {...props}
@@ -80,7 +86,7 @@ function DiscIcon(props:any) {
 }
 
 
-function GithubIcon(props:any) {
+function GithubIcon(props: any) {
   return (
     <svg
       {...props}
@@ -101,7 +107,7 @@ function GithubIcon(props:any) {
 }
 
 
-function LinkedinIcon(props:any) {
+function LinkedinIcon(props: any) {
   return (
     <svg
       {...props}
@@ -123,7 +129,7 @@ function LinkedinIcon(props:any) {
 }
 
 
-function MailIcon(props:any) {
+function MailIcon(props: any) {
   return (
     <svg
       {...props}
@@ -144,7 +150,7 @@ function MailIcon(props:any) {
 }
 
 
-function PhoneIcon(props:any) {
+function PhoneIcon(props: any) {
   return (
     <svg
       {...props}

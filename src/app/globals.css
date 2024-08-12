@@ -66,9 +66,9 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground dark:text-white;
   }
   navbar-link {
-    @apply text-black hover:text-primary transition-all duration-100
+    @apply  text-black dark:text-white hover:text-primary transition-all duration-100
   }
 }
