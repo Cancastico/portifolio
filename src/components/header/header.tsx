@@ -18,7 +18,7 @@ export default function Header() {
           {/* CARD SECTION */}
           <div className="flex flex-col items-center md:items-start">
             {/* PERSONAL CARD */}
-            <div className="border-primary border-4 border-b-0 border-r-0 rounded-ss-[8rem] h-[25rem]   w-[18rem]">
+            <div className="border-primary border-4 border-b-0 border-r-0 rounded-ss-[8rem] h-[25rem] w-[19rem] mx-auto md:mx-0">
               <div className="border-black border-2 rounded-ss-[8rem] rounded-ee-[8rem] h-[25rem] w-full flex flex-col items-center pt-12 gap-3">
 
                 <div className="flex flex-col items-center">

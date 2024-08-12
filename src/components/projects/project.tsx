@@ -22,18 +22,18 @@ export default function Projects() {
       <div className="py-10 flex gap-10 flex-wrap justify-evenly items-start">
         {projects.map((project, index) => {
           return (
-            <div key={index} className="w-[w-23rem] rounded-lg   shadow-md shadow-black/30 border-slate-400 border-[1px] transition-all duration-300 ease-in-out transform hover:scale-105 hover:cursor-pointer">
+            <div key={index} className="w-[20rem] rounded-lg   shadow-md shadow-black/30 border-slate-400 border-[1px] transition-all duration-300 ease-in-out transform hover:scale-105 hover:cursor-pointer">
               <a
                 target="_blank"
                 href={project.link}
-                className="w-[23rem] hover:scale-105"
+                className="w-full hover:scale-105"
               >
                 <Image
-                  className="w-[23rem] h-full object-cover rounded-t-lg "
+                  className="w-full h-full object-cover rounded-t-lg "
                   src={project.imagem}
                   alt="todo image"
                 />
-                <div className="w-[23rem] p-3 bg-white rounded-b-lg">
+                <div className="w-full p-3 bg-white rounded-b-lg">
                   <h1 className="w-full px-3 font-semibold text-lg bg-white rounded-b-lg"> {project.title}</h1>
                   <p className="w-[100%] px-3 bg-white rounded-b-lg text-justify">{project.description}</p>
                 </div>
