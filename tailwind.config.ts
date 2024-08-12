@@ -10,12 +10,6 @@ const config = {
   ],
   prefix: "",
   theme: {
-    fontFamily: {
-      ubuntu: [
-        '"Ubuntu",sans-serif '
-      ],
-      ibmPlexMono: ['"IBM Plex Mono", monospace']
-    },
     container: {
       center: true,
       padding: "2rem",
@@ -30,6 +24,12 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        ubuntu: [
+          '"Ubuntu",sans-serif '
+        ],
+        ibmPlexMono: ['"IBM Plex Mono", monospace']
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -74,8 +74,8 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      backgroundImage:{
-        "skills":"url('/public/skillsBackground.png')"
+      backgroundImage: {
+        "skills": "url('/public/skillsBackground.png')"
       },
       keyframes: {
         "accordion-down": {

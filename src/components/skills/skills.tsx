@@ -3,6 +3,7 @@ import skills from '@/../public/skillsBackground.png';
 import nodeIco from '@/../public/NodeJsIco.svg'
 import wordpressIco from '@/../public/WordpressIco.svg'
 import reactIco from '@/../public/reactIco.svg'
+import mysqlIco from '@/../public/MySQLIco.svg'
 import nextIco from '@/../public/NextJsIco.svg'
 import nestIco from '@/../public/nestJsIco.svg'
 
@@ -43,6 +44,11 @@ export default function Skills() {
             />
             <Image
               src={reactIco}
+              alt="Nodejs Background"
+              className="w-[9rem] h-[9rem] rounded-full p-1 bg-white"
+            />
+            <Image
+              src={mysqlIco}
               alt="Nodejs Background"
               className="w-[9rem] h-[9rem] rounded-full p-1 bg-white"
             />
