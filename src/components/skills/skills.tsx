@@ -17,7 +17,7 @@ export default function Skills() {
         className="pointer-events-none -z-10"
       />
       {/* CONTENT */}
-      <div className="h-[38rem] bg-[#272117]/80 flex flex-col gap-10 pt-10">
+      <div className="bg-[#272117]/80 flex flex-col gap-10 py-12">
         {/* TITLE */}
         <div className='flex-col flex gap-3 items-center'>
           <p className='text-[3rem] text-primary'>Habilidades</p>
@@ -29,7 +29,7 @@ export default function Skills() {
         </div>
         {/* LANGUAGES */}
         <div className='w-full flex flex-col items-center gap-4'>
-          <p className='text-white text-lg font-semibold'>Desenvolvimento Web:</p>
+          <p className='text-white text-xl font-semibold'>Desenvolvimento Web:</p>
           <div className='flex flex-col md:flex-row gap-6'>
             <Image
               src={nodeIco}
@@ -50,7 +50,7 @@ export default function Skills() {
         </div>
         {/* FRAMEWORKS */}
         <div className='w-full flex flex-col items-center gap-4'>
-          <p className='text-white text-lg font-semibold'>Frameworks:</p>
+          <p className='text-white text-xl font-semibold'>Frameworks:</p>
           <div className='flex flex-col md:flex-row gap-6'>
             <Image
               src={nextIco}
