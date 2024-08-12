@@ -30,7 +30,7 @@ export default function Skills() {
         {/* LANGUAGES */}
         <div className='w-full flex flex-col items-center gap-4'>
           <p className='text-white text-lg font-semibold'>Desenvolvimento Web:</p>
-          <div className='flex flex-row gap-6'>
+          <div className='flex flex-col md:flex-row gap-6'>
             <Image
               src={nodeIco}
               alt="Nodejs Background"
@@ -51,7 +51,7 @@ export default function Skills() {
         {/* FRAMEWORKS */}
         <div className='w-full flex flex-col items-center gap-4'>
           <p className='text-white text-lg font-semibold'>Frameworks:</p>
-          <div className='flex flex-row gap-6'>
+          <div className='flex flex-col md:flex-row gap-6'>
             <Image
               src={nextIco}
               alt="Nodejs Background"
