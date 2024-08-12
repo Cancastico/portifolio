@@ -1,13 +1,13 @@
 import { Briefcase, Link, Mail, MailIcon, MapPin, PinIcon } from "lucide-react";
 import Navbar from "../navbar/navbar";
 import Image from "next/image";
-import Perfil from "@/../public/ImagemPerfil.jpg"
+import Perfil from "@/../public/ImagemPerfil.png"
 
 export default function Header() {
   return (
     <div className="flex flex-col w-full">
       <Navbar></Navbar>
-      <header className="flex flex-col items-center bg-background-primary pb-[2rem]">
+      <header className="flex flex-col items-center bg-background-primary pb-[2rem] min-h-[80dvh] justify-center">
         
         {/* TITLE */}
         <div>
@@ -22,7 +22,7 @@ export default function Header() {
               <div className="border-black border-2 rounded-ss-[8rem] rounded-ee-[8rem] h-[25rem] w-full flex flex-col items-center pt-12 gap-3">
 
                 <div className="flex flex-col items-center">
-                  <Image src={Perfil} alt="Minha Foto" className="w-[6rem] h-[6rem] object-cover rounded-full border-primary border-2" />
+                  <Image src={Perfil} alt="Minha Foto" className="w-[6rem] h-[6rem] object-cover rounded-full bg-primary border-primary border-2" />
                   <h1 className="text-3xl font-medium">Avelino</h1>
                   <p className="text-sm">programador full-stack</p>
                 </div>
@@ -85,7 +85,7 @@ export default function Header() {
 
           {/* EXPERIENCE */}
           <div className="flex items-center">
-            <div className="rounded-[1.5rem] font-medium font-ubuntu p-8 bg-yellow-900 mx-auto md:bg-transparent md:mx-0 w-[90%] md:w-fit ">
+            <div className="font-medium font-ubuntu p-8 bg-yellow-900 mx-auto md:bg-transparent md:mx-0 w-[90%] md:w-fit ">
               <p className="!text-sm text-primary font-semibold">{`<ul>`}</p>
               <ul className="flex flex-col gap-3">
 

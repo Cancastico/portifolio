@@ -40,8 +40,8 @@ const config = {
         },
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#FFB800",
-          foreground: "#FFC700",
+          DEFAULT: "#00AD84",
+          foreground: "#256253",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
