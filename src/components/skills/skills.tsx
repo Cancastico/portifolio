@@ -50,7 +50,7 @@ export default function Skills() {
             <Image
               src={mysqlIco}
               alt="Nodejs Background"
-              className="w-[9rem] h-[9rem] rounded-full p-1 bg-white"
+              className="w-[9rem] h-[9rem] object-cover rounded-full border-[0.25rem] border-white bg-white"
             />
           </div>
         </div>

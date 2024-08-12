@@ -17,7 +17,7 @@ export default function Navbar() {
             <a className="text-black hover:text-primary hover:underline font-medium transition-all duration-200" href="#">Home</a>
           </li>
           <li>
-            <a className="text-black hover:text-primary hover:underline font-medium transition-all duration-100" href="#">Blog</a>
+            <a className="text-black hover:text-primary hover:underline font-medium transition-all duration-100" href="#">Meu Blog</a>
           </li>
           <li>
             <a className="text-black hover:text-primary hover:underline font-medium transition-all duration-100" href="#">Projetos</a>
@@ -35,7 +35,7 @@ export default function Navbar() {
             </a>
           </li>
           <li className="hover:text-primary flex gap-2 hover:underline duration-100">
-            <a className={`text-sm text-black flex gap-2 hover:text-primary font-medium transition-all duration-100`} href="#">
+            <a className={`text-sm text-black flex gap-2 hover:text-primary font-medium transition-all duration-100`} target="https://github.com/Cancastico" href="#">
               <GitHubLogoIcon />
               Github
             </a>
