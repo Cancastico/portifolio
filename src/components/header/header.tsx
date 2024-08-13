@@ -1,9 +1,15 @@
-import { Briefcase, Link, Mail, MailIcon, MapPin, PinIcon } from "lucide-react";
-import Navbar from "../navbar/navbar";
+import Perfil from "@/../public/ImagemPerfil.png";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { Briefcase, Link, Mail, MapPin } from "lucide-react";
 import Image from "next/image";
-import Perfil from "@/../public/ImagemPerfil.png"
+import { useState } from "react";
+import Navbar from "../navbar/navbar";
+import loadingAnimation from "@/../public/loading.json"
 
 export default function Header() {
+
+
+
   return (
     <div className="flex flex-col w-full">
       <Navbar></Navbar>
@@ -52,7 +58,7 @@ export default function Header() {
           <div className="flex flex-col gap-2 mx-3 md:mx-0">
             {/* SUBTITLE */}
             <div>
-              <p className="text-sm text-primary font-semibold dark:text-white">{`<h1>`}</p>
+              <p className="text-sm text-primary font-semibold dark:text-primary">{`<h1>`}</p>
               <div className="text-[2.5rem] leading-[2.4rem] font-medium font-ubuntu pl-3 ">
                 <p className="dark:text-white">Olá</p>
                 <p className="dark:text-white">Sou o <span className="text-primary ">Avelino</span>,</p>

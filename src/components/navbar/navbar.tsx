@@ -52,7 +52,7 @@ export default function Navbar() {
         <ThemingButton />
       </nav>
 
-      <div className=" md:hidden">
+      <div className="md:hidden">
         <ThemingButton />
       </div>
 

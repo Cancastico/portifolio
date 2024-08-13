@@ -7,7 +7,7 @@ export default function ThemingButton() {
     const { setTheme, theme } = useTheme();
 
     return (
-        <>
+        <div>
             {theme === 'dark' ?
                 <HoverCard>
                     <HoverCardTrigger asChild>
@@ -34,6 +34,6 @@ export default function ThemingButton() {
                 </HoverCard>
 
             }
-        </>
+        </div>
     )
 }
