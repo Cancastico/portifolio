@@ -1,5 +1,6 @@
 "use client"
 import About from '@/components/aboutme/aboutme';
+import Contact from '@/components/contact/contact';
 import Footer from '@/components/footer/footer';
 import Header from '@/components/header/header';
 import Projects from '@/components/projects/project';
@@ -14,7 +15,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setFade(true);
-    }, 0);
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -22,20 +23,22 @@ export default function Home() {
 
   return (
     <ThemeProvider>
-      <div className={` absolute z-10 w-full h-full flex justify-center items-center transition-opacity duration-1000 bg-background-primary dark:bg-background-dark ${fade ? 'opacity-0' : 'opacity-100'}`}>
+      {/* <div className={` absolute  w-full h-full flex justify-center items-center transition-all duration-1000 bg-background-primary dark:bg-background-dark ${fade ? 'opacity-0 -z-10' : 'opacity-100 z-10'}`}>
         <DotLottieReact
           className="w-36 h-36"
           src='https://lottie.host/70be1c08-ce15-46f5-8080-7778706b658a/JIyr1XWD2a.json'
           loop
           autoplay
         />
-      </div>
+      </div> */}
       <main className={`w-full ${!fade?'opacity-0':'opacity-'}`}>
         <Header />
         <Skills />
         <Projects />
         <About />
+        <Contact/>
         <Footer />
+        
       </main>
     </ThemeProvider>
   );
