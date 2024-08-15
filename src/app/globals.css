@@ -59,16 +59,28 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground dark:text-white;
   }
+
   navbar-link {
-    @apply  text-black dark:text-white hover:text-primary transition-all duration-100
+    @apply text-black dark:text-white hover:text-primary transition-all duration-100;
+  }
+
+  /* Classe hexágono */
+  .hexagon {
+    clip-path: polygon(
+      50% 0%, 
+      100% 25%, 
+      100% 75%, 
+      50% 100%, 
+      0% 75%, 
+      0% 25%
+    );
   }
 }

@@ -32,48 +32,48 @@ export default function Skills() {
         {/* LANGUAGES */}
         <div className='w-full flex flex-col items-center gap-4'>
           <p className='text-white text-xl font-semibold'>Desenvolvimento Web:</p>
-          <div className='flex flex-col md:flex-row gap-6'>
+          <div className='flex flex-col md:flex-row gap-2'>
             <Image
               src={nodeIco}
               alt="Nodejs Background"
-              className="w-[9rem] h-[9rem] rounded-full p-1 bg-[#90c53f]"
+              className="w-[8.3rem] h-[9rem] object-cover hexagon hover:scale-105 transition-all ease-in-out p-1 bg-[#90c53f]"
             />
             <Image
               src={wordpressIco}
               alt="Nodejs Background"
-              className="w-[9rem] h-[9rem] rounded-full p-1 bg-[#20749b]"
+              className="w-[8.3rem] h-[9rem] object-cover hexagon hover:scale-105 transition-all ease-in-out p-6 bg-[#20749b]"
             />
             <Image
               src={reactIco}
               alt="Nodejs Background"
-              className="w-[9rem] h-[9rem] rounded-full p-1 bg-[#20232a]"
+              className="w-[8.3rem] h-[9rem] object-cover hexagon hover:scale-105 transition-all ease-in-out p-1 bg-[#20232a]"
             />
             <Image
               src={mysqlIco}
               alt="Nodejs Background"
-              className="w-[9rem] h-[9rem] object-cover rounded-full border-[0.25rem] border-[#4479a1]  bg-[#4479a1]"
+              className="w-[8.3rem] h-[9rem] object-cover hexagon hover:scale-105 transition-all ease-in-out border-[#4479a1]  bg-[#4479a1]"
             />
 
             <Image
               src={dockerIco}
               alt="Nodejs Background"
-              className="w-[9rem] h-[9rem] object-cover rounded-full border-[0.25rem] border-[#006bc0]  bg-[#006bc0]"
+              className="w-[8.3rem] h-[9rem] object-cover hexagon  hover:scale-105 transition-all ease-in-out border-[0.25rem] border-[#006bc0]  bg-[#006bc0]"
             />
           </div>
         </div>
         {/* FRAMEWORKS */}
         <div className='w-full flex flex-col items-center gap-4'>
           <p className='text-white text-xl font-semibold'>Frameworks:</p>
-          <div className='flex flex-col md:flex-row gap-6'>
+          <div className='flex flex-col md:flex-row gap-2'>
             <Image
               src={nextIco}
               alt="Nodejs Background"
-              className="w-[9rem] h-[9rem] rounded-full p-1 bg-[#f4f5f5]"
+              className="w-[8.3rem] h-[9rem] hexagon  hover:scale-105 transition-all ease-in-out p-1 bg-[#f4f5f5]"
             />
             <Image
               src={nestIco}
               alt="Nodejs Background"
-              className="w-[9rem] h-[9rem] rounded-full p-1 bg-white"
+              className="w-[8.3rem] h-[9rem] hexagon  hover:scale-105 transition-all ease-in-out p-1 bg-white"
             />
 
           </div>
