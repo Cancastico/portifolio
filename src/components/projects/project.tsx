@@ -14,7 +14,7 @@ export default function Projects() {
     },
   ]
   return (
-    <div className="bg-background-primary dark:bg-background-dark flex flex-col justify-center w-full items-start py-10  md:px-[8rem] xxl:px-[16rem]" >
+    <div id="projetos" className="bg-background-primary dark:bg-background-dark flex flex-col justify-center w-full items-start py-10  md:px-[8rem] xxl:px-[16rem]" >
       <div className="flex flex-col items-start px-[1rem] md:px-0">
         <p className="text-sm text-primary font-semibold">{`<h1>`}</p>
         <p className="text-[2.5rem] text-primary font-light font-ubuntu px-3">Meus projetos</p>

@@ -21,16 +21,16 @@ export default function Navbar() {
       <nav className="flex-row gap-20 hidden md:flex">
         <ul className="flex flex-row md:gap-5 xl:gap-10 items-center">
           <li>
-            <a className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-200" href="#">Home</a>
+            <a className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-200" href="#home">Home</a>
           </li>
           <li>
             {/* <a className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100" href="#">Meu Blog</a> */}
           </li>
           <li>
-            <a className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100" href="#">Projetos</a>
+            <a className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100" href="#projetos">Projetos</a>
           </li>
           <li>
-            <a className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100" href="#">Contato</a>
+            <a className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100" href="#contato">Contato</a>
           </li>
         </ul>
 

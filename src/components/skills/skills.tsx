@@ -10,29 +10,22 @@ import nestIco from '@/../public/nestJsIco.svg'
 
 export default function Skills() {
   return (
-    <section className="w-[100%] min-h-[10rem] relative">
-      <Image
-        src={skills}
-        alt="Skills Background"
-        layout="fill"
-        objectFit="cover"
-        className="pointer-events-none -z-10"
-      />
+    <section className="w-[100%] min-h-[10rem] relative bg-cover bg-center" style={{backgroundImage:`url(${skills.src})`}}>
       {/* CONTENT */}
       <div className="bg-[#010021]/70 dark:bg-[#15282E]/70 flex flex-col gap-10 py-12 md:px-[8rem] xxl:px-[16rem]">
         {/* TITLE */}
-        <div className='flex-col flex gap-3 items-center'>
-          <p className='text-[3rem] font-light font-ubuntu text-primary'>Habilidades</p>
-          <div className='flex flex-row justify-center items-center'>
+        <div className='flex-col flex gap-3 items-center bg-transparent'>
+          <p className='text-[3rem] font-light font-ubuntu text-primary bg-transparent'>Habilidades</p>
+          <div className='flex flex-row justify-center items-center bg-transparent'>
             <div className='h-4 w-4 bg-primary rounded-full'></div>
             <div className='w-[10rem] h-1 bg-primary'></div>
             <div className='h-4 w-4 bg-primary rounded-full'></div>
           </div>
         </div>
         {/* LANGUAGES */}
-        <div className='w-full flex flex-col items-center gap-4'>
-          <p className='text-white text-xl font-semibold'>Desenvolvimento Web:</p>
-          <div className='flex flex-col md:flex-row gap-2'>
+        <div className='w-full flex flex-col items-center gap-4 bg-transparent'>
+          <p className='text-white text-xl font-semibold bg-transparent'>Desenvolvimento Web:</p>
+          <div className='flex flex-col md:flex-row gap-2 bg-transparent '>
             <Image
               src={nodeIco}
               alt="Nodejs Background"
@@ -62,9 +55,9 @@ export default function Skills() {
           </div>
         </div>
         {/* FRAMEWORKS */}
-        <div className='w-full flex flex-col items-center gap-4'>
-          <p className='text-white text-xl font-semibold'>Frameworks:</p>
-          <div className='flex flex-col md:flex-row gap-2'>
+        <div className='w-full flex flex-col items-center gap-4 bg-transparent'>
+          <p className='text-white text-xl font-semibold bg-transparent'>Frameworks:</p>
+          <div className='flex flex-col md:flex-row gap-2 bg-transparent'>
             <Image
               src={nextIco}
               alt="Nodejs Background"

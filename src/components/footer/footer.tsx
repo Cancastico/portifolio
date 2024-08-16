@@ -16,26 +16,26 @@ export default function Footer() {
 
   return (
     <footer className="bg-muted p-6 md:py-12 w-full dark:text-white ">
-      <div className="flex flex-col md:flex-row md:px-[8rem] xxl:px-[16rem] gap-8 text-sm ">
-        <div className="grid gap-1">
-          <h3 className="font-semibold">Contato</h3>
-          <div className="flex items-center gap-2 hover:text-primary hover:underline">
+      <div className="flex flex-col md:flex-row md:px-[8rem] xxl:px-[16rem] gap-8 text-sm  bg-transparent">
+        <div className="grid gap-1 bg-transparent">
+          <h3 className="font-semibold bg-transparent">Contato</h3>
+          <div className="flex items-center gap-2 bg-transparent hover:text-primary hover:underline">
             <GithubIcon className="w-4 h-4" />
             <Link href="https://github.com/Cancastico" target="_blank" prefetch={false}>
               Cancastico
             </Link>
           </div>
-          <div className="flex items-center gap-2 hover:text-primary hover:underline">
+          <div className="flex items-center gap-2 hover:text-primary hover:underline bg-transparent">
             <MailIcon className="w-4 h-4" />
             <Link href="carlosaaugusto2002@outlook.com" prefetch={false}>
               carlosaaugusto2002@outlook.com
             </Link>
           </div>
-          <div className="flex items-center gap-2 hover:text-primary hover:underline">
+          <div className="flex items-center gap-2 hover:text-primary hover:underline bg-transparent">
             <DiscIcon className="w-4 h-4" />
             <span>Canca#7318</span>
           </div>
-          <div className="flex items-center gap-2 hover:text-primary hover:underline">
+          <div className="flex items-center gap-2 hover:text-primary hover:underline bg-transparent">
             <LinkedinIcon className="w-4 h-4" />
             <Link href="https://www.linkedin.com/in/carlos-augusto-176120164/" target="_blank" prefetch={false}>
               Carlos Augusto
@@ -43,12 +43,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="grid gap-1">
-          <h3 className="font-semibold">Sobre</h3>
-          <p>Este é o meu portfólio pessoal, onde você pode encontrar informações sobre meus projetos e habilidades.</p>
+        <div className="grid gap-1 bg-transparent">
+          <h3 className="font-semibold bg-transparent">Sobre</h3>
+          <p className="bg-transparent">Este é o meu portfólio pessoal, onde você pode encontrar informações sobre meus projetos e habilidades.</p>
         </div>
 
-        <div className="flex flex-row items-center gap-2">
+        <div className="flex flex-row items-center gap-2 bg-transparent">
           <h3 className="font-semibold">Tema : </h3>
           <div className="flex items-center gap-2">
             <ThemingButton />

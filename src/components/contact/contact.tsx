@@ -1,14 +1,13 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
 // import { useForm } from "react-hook-form";
+import { useForm as formSpree } from '@formspree/react';
+import { useForm } from 'react-hook-form';
 import z from 'zod';
 import ZodInputContainer from "../input/inputTextZod";
 import { Button } from '../ui/button';
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
-import { useForm as formSpree } from '@formspree/react';
-import { useForm, ErrorOption } from 'react-hook-form';
-import { useEffect } from 'react';
 
 export default function Contact() {
   const [state, handleSubmit] = formSpree("xovalwqn");
@@ -47,14 +46,8 @@ export default function Contact() {
     }
   }
 
-
-  useEffect(() => {
-    console.log(errors)
-  }, [errors])
-
-
   return (
-    <section className="flex flex-col md:flex-row  py-[3rem] md:py-[5rem] justify-between bg-background-primary dark:bg-background-dark border-y-2 border-primary px-[1rem] md:px-[8rem] xxl:px-[16rem]">
+    <section id='contato' className="flex flex-col gap-8 md:gap-0 md:flex-row  py-[3rem] md:py-[5rem] justify-between bg-background-primary dark:bg-background-dark border-y-2 border-primary px-[1rem] md:px-[8rem] xxl:px-[16rem]">
       <article className='w-full md:w-[43%]  flex flex-col gap-5'>
         <div>
           <p className="text-sm text-primary font-semibold">{`<h1>`}</p>
@@ -83,7 +76,7 @@ export default function Contact() {
       </article>
 
       <form className="w-full md:w-[50%] xl:w-[33%] p-5 flex flex-col gap-[1.8rem] bg-background-dark rounded-lg" onSubmit={submiting}>
-        <div className="w-full flex flex-col md:flex-row  gap-[1.8rem] ">
+        <div className="w-full flex flex-col md:flex-row  gap-[1.8rem]  bg-transparent">
 
           <ZodInputContainer className="w-[100%]" error={undefined} label="Nome">
             <Input id='name' name='name' placeholder="Digite seu Nome" className="bg-background-primary  text-black placeholder:text-background-dark roundex-sm w-full" />
@@ -98,7 +91,7 @@ export default function Contact() {
           <Textarea id='message' name='message' placeholder="Escreva sua mensagem" className="bg-background-primary text-black placeholder:text-background-dark h-[13rem] w-full resize-none scroll-smooth" maxLength={512} />
         </ZodInputContainer>
 
-        <div className='w-full flex flex-row-reverse'>
+        <div className='w-full flex flex-row-reverse bg-transparent'>
           <Button className='md:w-[6rem] rounded-none bg-primary text-white dark:text-black hover:bg-primary-foreground'> Enviar</Button>
         </div>
       </form>

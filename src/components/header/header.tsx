@@ -9,7 +9,7 @@ export default function Header() {
 
 
   return (
-    <div className="flex flex-col w-full ">
+    <div id="home" className="flex flex-col w-full ">
 
       <Navbar></Navbar>
       <header className="flex flex-col items-center bg-background-primary dark:bg-background-dark pb-[2rem] min-h-[80dvh] justify-center md:px-[8rem] xxl:px-[16rem]">
@@ -21,7 +21,7 @@ export default function Header() {
         {/* CONTAINER */}
         <div className="flex flex-col md:flex-row gap-10 w-full justify-between items-center md:items-start">
           {/* CARD SECTION */}
-          <div className="flex flex-col items-center md:items-start w-full   md:w-[35%] max-w-[340px] min-w-[300px]">
+          <div className="flex flex-col items-center md:items-start w-full   md:w-[35%] max-w-[310px] min-w-[300px]">
             {/* PERSONAL CARD */}
             <div className="border-primary border-4 border-b-0 border-r-0 rounded-ss-[8rem] h-[25rem] w-full mx-auto md:mx-0">
               <div className="border-black dark:border-white border-2 rounded-ss-[8rem] rounded-ee-[8rem] h-[25rem] w-full flex flex-col items-center pt-12 gap-3">
@@ -76,11 +76,11 @@ export default function Header() {
               <p className="text-sm text-primary font-semibold">{`</p>`}</p>
             </div>
 
-            {/* CONTAT */}
+            {/* CONTACT */}
             <div className="flex flex-col gap-3">
               <p className="text-sm text-primary font-semibold">{`<a>`}</p>
               <div className="flex flex-row gap-2 items-center pl-3">
-                <a href="#" className="font-normal  hover:text-primary border-[1px] border-primary rounded-lg p-1 px-3 duration-150 text-xl dark:text-white dark:hover:text-primary hover:bg-zinc-100 dark:hover:bg-zinc-700">Clique para <span className="text-primary font-semibold">Conversar</span></a>
+                <a href="#contato" className="font-normal  hover:text-primary border-[1px] border-primary rounded-lg p-1 px-3 duration-150 text-xl dark:text-white dark:hover:text-primary hover:bg-zinc-100 dark:hover:bg-zinc-700">Clique para <span className="text-primary font-semibold">Conversar</span></a>
               </div>
               <p className="text-sm text-primary font-semibold">{`</a>`}</p>
             </div>

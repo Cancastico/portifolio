@@ -14,7 +14,7 @@ const config = {
       center: true,
       padding: "2rem",
       screens: {
-        smt: { min: "0px", max: "768px" },
+        smt: { min: "0px", max: "769px" },
         md: { min: "769px", max: "1024px" },
         lg: { min: "1025px", max: "1280px" },
         xl: { min: "1281px", max: "1920px" },
@@ -27,6 +27,14 @@ const config = {
         ubuntu: ['"Ubuntu",sans-serif '],
         ibmPlexMono: ['"IBM Plex Mono", monospace']
       },
+      screens: {
+        smt: { min: "0px" },
+        md: { min: "769px" },
+        lg: { min: "1025px" },
+        xl: { min: "1281px" },
+        xxl: "1921px",
+        "2xl": "1366px",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -34,7 +42,7 @@ const config = {
         background: {
           DEFAULT: "hsl(var(--background))",
           primary: "#ffffff",
-          dark:"#282f37"
+          dark: "#282f37"
         },
         foreground: "hsl(var(--foreground))",
         primary: {
@@ -91,7 +99,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"),require('tailwind-scrollbar')({ preferredStrategy: 'pseudoelements', nocompatible: true })],
+  plugins: [require("tailwindcss-animate"), require('tailwind-scrollbar')({ preferredStrategy: 'pseudoelements', nocompatible: true })],
 } satisfies Config
 
 export default config

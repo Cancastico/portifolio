@@ -8,10 +8,10 @@ type Props = {
 }
 export default function ZodInputContainer({ label, children, error, className }: Props) {
     return (
-        <div className={"flex flex-col gap-1 relative " + className}>
-            <Label className="font-semibold text-lg text-primary dark:text-white">{label}</Label>
+        <div className={"flex flex-col gap-1 relative bg-transparent " + className}>
+            <Label className="font-semibold text-lg text-primary dark:text-white bg-transparent">{label}</Label>
             {children}
-            {error && (<span className="text-[0.65rem] text-[#fe8c8c] absolute bottom-[-1.2rem] left-0">*{error.message}</span>)}
+            {error && (<span className="text-[0.65rem] text-[#fe8c8c] absolute bottom-[-1.2rem]  bg-transparent left-0">*{error.message}</span>)}
         </div>
     )
 }
