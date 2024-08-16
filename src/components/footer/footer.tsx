@@ -3,16 +3,17 @@
  * @see https://v0.dev/t/xf9ANuZbksz
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
-import Link from "next/link"
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
-import { useTheme } from "@/contexts/theme";
+import Link from "next/link";
 import ThemingButton from "../themingButton/themingButton";
 
 export default function Footer() {
-  const { theme, setTheme } = useTheme();
-  const handleChange = (value: string) => {
-    setTheme(value);
-  };
+
+  const email = "carlosaaugusto2002@outlook.com";
+
+    const handleCopyEmail = () => {
+      navigator.clipboard.writeText(email);
+    };
+
 
   return (
     <footer className="bg-muted p-6 md:py-12 w-full dark:text-white ">
@@ -27,14 +28,17 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-2 hover:text-primary hover:underline bg-transparent">
             <MailIcon className="w-4 h-4" />
-            <Link href="carlosaaugusto2002@outlook.com" prefetch={false}>
-              carlosaaugusto2002@outlook.com
+            <Link href="" onClick={(e) => {
+              e.preventDefault();
+              handleCopyEmail();
+            }} prefetch={false}>
+              {email}
             </Link>
           </div>
-          <div className="flex items-center gap-2 hover:text-primary hover:underline bg-transparent">
+          {/* <div className="flex items-center gap-2 hover:text-primary hover:underline bg-transparent">
             <DiscIcon className="w-4 h-4" />
             <span>Canca#7318</span>
-          </div>
+          </div> */}
           <div className="flex items-center gap-2 hover:text-primary hover:underline bg-transparent">
             <LinkedinIcon className="w-4 h-4" />
             <Link href="https://www.linkedin.com/in/carlos-augusto-176120164/" target="_blank" prefetch={false}>

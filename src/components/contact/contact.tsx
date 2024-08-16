@@ -8,6 +8,7 @@ import ZodInputContainer from "../input/inputTextZod";
 import { Button } from '../ui/button';
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
+import Link from 'next/link';
 
 export default function Contact() {
   const [state, handleSubmit] = formSpree("xovalwqn");
@@ -61,16 +62,19 @@ export default function Contact() {
           <div>
             <p className="text-sm text-background-dark font-semibold font-ubuntu">Redes Sociais:</p>
           </div>
-          <div className=' flex gap-3 justify-center md:justify-normal gap-3'>
-            <Button className='bg-inherit/10 text-primary-foreground hover:text-white transition-all dark:text-white border-2 border-primary rounded-none flex gap-1'>
-              <GitHubLogoIcon className='w-6 h-6' />
-              Github
-            </Button>
-
-            <Button className='bg-inherit/10 text-primary-foreground hover:text-white transition-all dark:text-white border-2 border-primary rounded-none flex gap-1'>
-              <LinkedInLogoIcon className='w-6 h-6' />
-              LinkedIn
-            </Button>
+          <div className=' flex gap-3 justify-center md:justify-normal'>
+            <Link href="https://www.linkedin.com/in/carlos-augusto-176120164/" target='_blank'>
+              <Button className='bg-inherit/10 text-primary-foreground hover:text-white transition-all dark:text-white border-2 border-primary rounded-none flex gap-1'>
+                <GitHubLogoIcon className='w-6 h-6' />
+                Github
+              </Button>
+            </Link>
+            <Link href="https://github.com/Cancastico" target='_blank'>
+              <Button className='bg-inherit/10 text-primary-foreground hover:text-white transition-all dark:text-white border-2 border-primary rounded-none flex gap-1'>
+                <LinkedInLogoIcon className='w-6 h-6' />
+                LinkedIn
+              </Button>
+            </Link>
           </div>
         </div>
       </article>

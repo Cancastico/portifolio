@@ -35,12 +35,12 @@ export default function Navbar() {
         </ul>
 
         <ul className="flex flex-row  items-center gap-10">
-          <li className="hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline duration-100">
+          {/* <li className="hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline duration-100">
             <a className={`text-sm  text-black dark:text-white flex gap-2 hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100`} href="#">
               <DiscordLogoIcon />
               Discord
             </a>
-          </li>
+          </li> */}
           <li className="hover:text-primary flex gap-2 hover:underline duration-100">
             <a className={`text-sm  text-black dark:text-white flex gap-2 hover:text-primary font-medium transition-all duration-100`} target="_blank" href="https://github.com/Cancastico">
               <GitHubLogoIcon />
