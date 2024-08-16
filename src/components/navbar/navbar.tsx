@@ -11,11 +11,11 @@ export default function Navbar() {
 
 
   return (
-    <header className=" flex flex-row justify-between items-center w-full px-[10%] h-20 bg-background-primary dark:bg-background-dark">
+    <header className=" flex flex-row justify-between items-center w-full h-20 bg-background-primary dark:bg-background-dark md:px-[16rem]">
 
       <div className="flex flex-row gap-1 justify-center w-full md:w-fit md:justify-normal ">
-        <span className="font-semibold text-primary text-lg">{`<C/>`}</span>
-        <p className="font-semibold text-lg text-black dark:text-white">Cancastico</p>
+        <span className="font-semibold font-ibmPlexMono text-primary text-lg">{`<C/>`}</span>
+        <p className="font-semibold font-ibmPlexMono text-lg text-black dark:text-white">Cancastico</p>
       </div>
 
       <nav className="flex-row gap-20 hidden md:flex">

@@ -25,9 +25,7 @@ const config = {
     },
     extend: {
       fontFamily: {
-        ubuntu: [
-          '"Ubuntu",sans-serif '
-        ],
+        ubuntu: ['"Ubuntu",sans-serif '],
         ibmPlexMono: ['"IBM Plex Mono", monospace']
       },
       colors: {
@@ -36,7 +34,7 @@ const config = {
         ring: "hsl(var(--ring))",
         background: {
           DEFAULT: "hsl(var(--background))",
-          primary: "#d9d9d9",
+          primary: "#ffffff",
           dark:"#282f37"
         },
         foreground: "hsl(var(--foreground))",

@@ -19,10 +19,10 @@ export default function Skills() {
         className="pointer-events-none -z-10"
       />
       {/* CONTENT */}
-      <div className="bg-[#010021]/70 dark:bg-[#15282E]/70 flex flex-col gap-10 py-12">
+      <div className="bg-[#010021]/70 dark:bg-[#15282E]/70 flex flex-col gap-10 py-12 md:px-[16rem]">
         {/* TITLE */}
         <div className='flex-col flex gap-3 items-center'>
-          <p className='text-[3rem] text-primary'>Habilidades</p>
+          <p className='text-[3rem] font-light font-ubuntu text-primary'>Habilidades</p>
           <div className='flex flex-row justify-center items-center'>
             <div className='h-4 w-4 bg-primary rounded-full'></div>
             <div className='w-[10rem] h-1 bg-primary'></div>

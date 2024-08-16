@@ -15,7 +15,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setFade(true);
-    }, 2000);
+    }, 100);
     return () => clearTimeout(timer);
   }, []);
 
@@ -23,22 +23,17 @@ export default function Home() {
 
   return (
     <ThemeProvider>
-      {/* <div className={` absolute  w-full h-full flex justify-center items-center transition-all duration-1000 bg-background-primary dark:bg-background-dark ${fade ? 'opacity-0 -z-10' : 'opacity-100 z-10'}`}>
-        <DotLottieReact
-          className="w-36 h-36"
-          src='https://lottie.host/70be1c08-ce15-46f5-8080-7778706b658a/JIyr1XWD2a.json'
-          loop
-          autoplay
-        />
-      </div> */}
-      <main className={`w-full ${!fade?'opacity-0':'opacity-'}`}>
+      <div className={` absolute  w-full h-full flex justify-center items-center transition-all duration-500 bg-background-primary dark:bg-background-dark ${fade ? 'opacity-0 -z-10' : 'opacity-100 z-10'}`}>
+        <iframe className="w-36 h-36" src="https://lottie.host/embed/70be1c08-ce15-46f5-8080-7778706b658a/JIyr1XWD2a.json"></iframe>
+      </div>
+      <main className={`w-full ${!fade ? 'opacity-0' : 'opacity-'}`}>
         <Header />
         <Skills />
         <Projects />
         <About />
-        <Contact/>
+        <Contact />
         <Footer />
-        
+
       </main>
     </ThemeProvider>
   );

@@ -1,26 +1,25 @@
+"use client"
 import Perfil from "@/../public/ImagemPerfil.png";
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { Briefcase, Link, Mail, MapPin } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
 import Navbar from "../navbar/navbar";
-import loadingAnimation from "@/../public/loading.json"
 
 export default function Header() {
 
 
 
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full ">
+
       <Navbar></Navbar>
-      <header className="flex flex-col items-center bg-background-primary dark:bg-background-dark pb-[2rem] min-h-[80dvh] justify-center">
+      <header className="flex flex-col items-center bg-background-primary dark:bg-background-dark pb-[2rem] min-h-[80dvh] justify-center md:px-[16rem]">
 
         {/* TITLE */}
         <div>
-          <p className="font-ubuntu text-[3rem] md:text-[4rem] text-primary">Programador</p>
+          <p className={` font-ubuntu text-[3rem] md:text-[4rem]  text-primary`}>Programador</p>
         </div>
         {/* CONTAINER */}
-        <div className="flex flex-col md:flex-row gap-10 w-full justify-center sm:items-center lg:px-5">
+        <div className="flex flex-col md:flex-row gap-10 w-full justify-between sm:items-center">
           {/* CARD SECTION */}
           <div className="flex flex-col items-center md:items-start">
             {/* PERSONAL CARD */}
@@ -78,10 +77,10 @@ export default function Header() {
             </div>
 
             {/* CONTAT */}
-            <div>
+            <div className="flex flex-col gap-3">
               <p className="text-sm text-primary font-semibold">{`<a>`}</p>
               <div className="flex flex-row gap-2 items-center pl-3">
-                <a href="#" className="font-medium underline hover:text-primary duration-150 text-xl dark:text-white dark:hover:text-primary">Venha conversar</a>
+                <a href="#" className="font-normal  hover:text-primary border-[1px] border-primary rounded-lg p-1 px-3 duration-150 text-xl dark:text-white dark:hover:text-primary hover:bg-zinc-100 dark:hover:bg-zinc-700">Clique para <span className="text-primary font-semibold">Conversar</span></a>
               </div>
               <p className="text-sm text-primary font-semibold">{`</a>`}</p>
             </div>
@@ -91,25 +90,25 @@ export default function Header() {
 
           {/* EXPERIENCE */}
           <div className="flex items-center">
-            <div className="font-medium font-ubuntu p-8 bg-slate-800 mx-auto md:bg-transparent md:mx-0 w-[90%] md:w-fit ">
+            <div className="font-medium font-ibmPlexMono p-8 bg-slate-800 mx-auto md:bg-transparent md:mx-0 w-[90%] md:w-fit ">
               <p className="!text-sm text-primary font-semibold">{`<ul>`}</p>
               <ul className="flex flex-col gap-3">
 
                 <li className="pl-3">
                   <p className="text-sm text-primary font-semibold">{`<li>`}</p>
-                  <p className="text-sm text-primary font-semibold pl-3"><span className="md:text-black text-white dark:text-white font-normal text-lg ">Foco para a Web</span></p>
+                  <p className="text-sm text-primary font-semibold pl-3"><span className="md:text-black text-white dark:text-white font-normal text-base ">Foco para a Web</span></p>
                   <p className="text-sm text-primary font-semibold">{`</li>`}</p>
                 </li>
 
                 <li className="pl-3">
                   <p className="text-sm text-primary font-semibold">{`<li>`}</p>
-                  <p className="text-sm text-primary font-semibold pl-3"><span className="md:text-black text-white dark:text-white font-normal text-lg ">Empenho na sua ideia</span></p>
+                  <p className="text-sm text-primary font-semibold pl-3"><span className="md:text-black text-white dark:text-white font-normal text-base ">Empenho na sua ideia</span></p>
                   <p className="text-sm text-primary font-semibold">{`</li>`}</p>
                 </li>
 
                 <li className="pl-3">
                   <p className="text-sm text-primary font-semibold">{`<li>`}</p>
-                  <p className="text-sm text-primary font-semibold pl-3"><span className="md:text-black text-white dark:text-white font-normal text-lg ">+ de 3 anos de experiencia</span></p>
+                  <p className="text-sm text-primary font-semibold pl-3"><span className="md:text-black text-white dark:text-white font-normal text-base ">+ de 3 anos de experiencia</span></p>
                   <p className="text-sm text-primary font-semibold">{`</li>`}</p>
                 </li>
               </ul>
