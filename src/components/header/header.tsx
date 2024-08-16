@@ -12,18 +12,18 @@ export default function Header() {
     <div className="flex flex-col w-full ">
 
       <Navbar></Navbar>
-      <header className="flex flex-col items-center bg-background-primary dark:bg-background-dark pb-[2rem] min-h-[80dvh] justify-center md:px-[16rem]">
+      <header className="flex flex-col items-center bg-background-primary dark:bg-background-dark pb-[2rem] min-h-[80dvh] justify-center md:px-[8rem] xxl:px-[16rem]">
 
         {/* TITLE */}
         <div>
           <p className={` font-ubuntu text-[3rem] md:text-[4rem]  text-primary`}>Programador</p>
         </div>
         {/* CONTAINER */}
-        <div className="flex flex-col md:flex-row gap-10 w-full justify-between sm:items-center">
+        <div className="flex flex-col md:flex-row gap-10 w-full justify-between items-center md:items-start">
           {/* CARD SECTION */}
-          <div className="flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-center md:items-start w-full   md:w-[35%] max-w-[340px] min-w-[300px]">
             {/* PERSONAL CARD */}
-            <div className="border-primary border-4 border-b-0 border-r-0 rounded-ss-[8rem] h-[25rem] w-[19rem] mx-auto md:mx-0">
+            <div className="border-primary border-4 border-b-0 border-r-0 rounded-ss-[8rem] h-[25rem] w-full mx-auto md:mx-0">
               <div className="border-black dark:border-white border-2 rounded-ss-[8rem] rounded-ee-[8rem] h-[25rem] w-full flex flex-col items-center pt-12 gap-3">
 
                 <div className="flex flex-col items-center">
@@ -54,7 +54,7 @@ export default function Header() {
             </div>
           </div>
           {/* CONTENT SECTION */}
-          <div className="flex flex-col gap-2 mx-3 md:mx-0">
+          <div className="flex flex-col gap-2 mx-3 w-full px-5 md:w-[45%] md:mx-0">
             {/* SUBTITLE */}
             <div>
               <p className="text-sm text-primary font-semibold dark:text-primary">{`<h1>`}</p>
@@ -89,7 +89,7 @@ export default function Header() {
           </div>
 
           {/* EXPERIENCE */}
-          <div className="flex items-center">
+          <div className="flex items-center w-full  md:w-[20%]">
             <div className="font-medium font-ibmPlexMono p-8 bg-slate-800 mx-auto md:bg-transparent md:mx-0 w-[90%] md:w-fit ">
               <p className="!text-sm text-primary font-semibold">{`<ul>`}</p>
               <ul className="flex flex-col gap-3">

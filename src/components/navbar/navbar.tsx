@@ -11,7 +11,7 @@ export default function Navbar() {
 
 
   return (
-    <header className=" flex flex-row justify-between items-center w-full h-20 bg-background-primary dark:bg-background-dark md:px-[16rem]">
+    <header className=" flex flex-row justify-between items-center w-full h-20 bg-background-primary dark:bg-background-dark md:px-[8rem] xxl:px-[16rem]">
 
       <div className="flex flex-row gap-1 justify-center w-full md:w-fit md:justify-normal ">
         <span className="font-semibold font-ibmPlexMono text-primary text-lg">{`<C/>`}</span>
@@ -19,12 +19,12 @@ export default function Navbar() {
       </div>
 
       <nav className="flex-row gap-20 hidden md:flex">
-        <ul className="flex flex-row gap-10 items-center">
+        <ul className="flex flex-row md:gap-5 xl:gap-10 items-center">
           <li>
             <a className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-200" href="#">Home</a>
           </li>
           <li>
-            <a className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100" href="#">Meu Blog</a>
+            {/* <a className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100" href="#">Meu Blog</a> */}
           </li>
           <li>
             <a className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100" href="#">Projetos</a>

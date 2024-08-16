@@ -16,7 +16,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-muted p-6 md:py-12 w-full dark:text-white ">
-      <div className="flex flex-col md:flex-row md:px-[16rem] gap-8 text-sm ">
+      <div className="flex flex-col md:flex-row md:px-[8rem] xxl:px-[16rem] gap-8 text-sm ">
         <div className="grid gap-1">
           <h3 className="font-semibold">Contato</h3>
           <div className="flex items-center gap-2 hover:text-primary hover:underline">

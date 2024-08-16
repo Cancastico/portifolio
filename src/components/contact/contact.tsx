@@ -54,7 +54,7 @@ export default function Contact() {
 
 
   return (
-    <section className="flex flex-col md:flex-row  py-[3rem] md:py-[5rem] justify-between bg-background-primary dark:bg-background-dark border-y-2 border-primary px-[1rem] md:px-[16rem]">
+    <section className="flex flex-col md:flex-row  py-[3rem] md:py-[5rem] justify-between bg-background-primary dark:bg-background-dark border-y-2 border-primary px-[1rem] md:px-[8rem] xxl:px-[16rem]">
       <article className='w-full md:w-[43%]  flex flex-col gap-5'>
         <div>
           <p className="text-sm text-primary font-semibold">{`<h1>`}</p>
@@ -82,7 +82,7 @@ export default function Contact() {
         </div>
       </article>
 
-      <form className="w-full md:w-[33%] p-5 flex flex-col gap-[1.8rem] bg-background-dark rounded-lg" onSubmit={submiting}>
+      <form className="w-full md:w-[50%] xl:w-[33%] p-5 flex flex-col gap-[1.8rem] bg-background-dark rounded-lg" onSubmit={submiting}>
         <div className="w-full flex flex-col md:flex-row  gap-[1.8rem] ">
 
           <ZodInputContainer className="w-[100%]" error={undefined} label="Nome">

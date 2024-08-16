@@ -13,7 +13,7 @@ export default function About() {
           className="pointer-events-none -z-10"
         />
         {/* CONTENT */}
-        <div className="flex flex-col w-full justify-between bg-[#010021]/70 dark:bg-[#15282E]/90 px-[1rem] md:px-[16rem] md:flex-row">
+        <div className="flex flex-col w-full justify-between bg-[#010021]/70 dark:bg-[#15282E]/90 px-[1rem] md:px-[8rem] xxl:px-[16rem] md:flex-row">
           <div className=" flex flex-col gap-10 py-12 h-full w-full md:w-[60%] ">
             <div className="w-full">
               <p className="text-sm text-primary font-semibold">{`<h1>`}</p>
