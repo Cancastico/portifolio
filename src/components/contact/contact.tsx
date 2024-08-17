@@ -2,15 +2,21 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
 // import { useForm } from "react-hook-form";
 import { useForm as formSpree } from '@formspree/react';
+import Link from 'next/link';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import z from 'zod';
 import ZodInputContainer from "../input/inputTextZod";
 import { Button } from '../ui/button';
 import { Input } from "../ui/input";
+import Loading from '../ui/loading';
+import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import { Textarea } from "../ui/textarea";
-import Link from 'next/link';
+import submitedAnimation from '@/../public/sucessSubmit.json'
 
 export default function Contact() {
+  const [submiting, setSubmiting] = useState<boolean>(false);
+  const [submited, setSubmited] = useState<boolean>(false);
   const [state, handleSubmit] = formSpree("xovalwqn");
 
   const contactSchema = z.object({
@@ -20,9 +26,10 @@ export default function Contact() {
   })
 
   type contact = z.infer<typeof contactSchema>
-  const { formState: { errors }, setError, clearErrors } = useForm<contact>({ resolver: zodResolver(contactSchema) })
+  const { register, formState: { errors }, setError, clearErrors, reset } = useForm<contact>({ resolver: zodResolver(contactSchema) })
 
-  function submiting(e: any) {
+  function submit(e: any) {
+    setSubmiting(true)
     e.preventDefault();
     const object: contact = {
       name: e.target[0].value,
@@ -33,7 +40,11 @@ export default function Contact() {
     const verify = contactSchema.safeParse(object);
 
     if (verify.success) {
-      handleSubmit(e);
+      handleSubmit(e).then(() => {
+        setSubmiting(false)
+        setSubmited(true)
+        setTimeout(() => { setSubmited(false) }, 2000)
+      }).finally(() => { reset() });
       clearErrors();
     } else {
       verify.error.issues.forEach((issue) => {
@@ -43,6 +54,7 @@ export default function Contact() {
         } else {
           setError(`root.${path}`, { message: issue.message });
         }
+        setSubmiting(false)
       });
     }
   }
@@ -79,24 +91,52 @@ export default function Contact() {
         </div>
       </article>
 
-      <form className="w-full md:w-[50%] xl:w-[33%] p-5 flex flex-col gap-[1.8rem] bg-background-dark rounded-lg" onSubmit={submiting}>
+      <form className="relative w-full md:w-[50%] xl:w-[33%] p-5 flex flex-col gap-[1.8rem] bg-background-dark rounded-lg" onSubmit={submit}>
+
+        {submited && (
+          <div
+            className='absolute w-full h-full p-10 top-0 left-0 z-20 transition-all duration-1000'
+          >
+            <Player
+              autoplay
+              src={submitedAnimation}
+              onEvent={event => {
+                if (event == 'complete') {
+                  setSubmited(false);
+                }
+              }}
+            ></Player>
+          </div>
+        )}
+
         <div className="w-full flex flex-col md:flex-row  gap-[1.8rem]  bg-transparent">
 
           <ZodInputContainer className="w-[100%]" error={undefined} label="Nome">
-            <Input id='name' name='name' placeholder="Digite seu Nome" className="bg-background-primary  text-black placeholder:text-background-dark roundex-sm w-full" />
+            <Input id='name' placeholder="Digite seu Nome" className="bg-background-primary  text-black placeholder:text-background-dark roundex-sm w-full" {...register('name')} />
           </ZodInputContainer>
 
           <ZodInputContainer className="w-[100%]" error={errors.email} label="Email">
-            <Input id='email' name='email' placeholder="Digite seu E-mail" className="bg-background-primary text-black placeholder:text-background-dark roundex-sm w-full" />
+            <Input id='email' placeholder="Digite seu E-mail" className="bg-background-primary text-black placeholder:text-background-dark roundex-sm w-full" {...register('email')} />
           </ZodInputContainer>
         </div>
 
         <ZodInputContainer error={undefined} label="Mensagem">
-          <Textarea id='message' name='message' placeholder="Escreva sua mensagem" className="bg-background-primary text-black placeholder:text-background-dark h-[13rem] w-full resize-none scroll-smooth" maxLength={512} />
+          <Textarea id='message' placeholder="Escreva sua mensagem" className="bg-background-primary text-black placeholder:text-background-dark h-[13rem] w-full resize-none scroll-smooth" maxLength={512} {...register('message')} />
         </ZodInputContainer>
 
         <div className='w-full flex flex-row-reverse bg-transparent'>
-          <Button className='md:w-[6rem] rounded-none bg-primary text-white dark:text-black hover:bg-primary-foreground'> Enviar</Button>
+          <Button disabled={submiting} className=' w-[6rem] relative gap-2 rounded-none bg-primary text-white dark:text-black hover:bg-primary-foreground'>
+            {
+              submiting ? (
+                <div className='absolute left-auto top-auto w-6 h-6'>
+                  <Loading></Loading>
+                </div>
+              ) : (
+                'Enviar'
+              )
+            }
+
+          </Button>
         </div>
       </form>
     </section>
