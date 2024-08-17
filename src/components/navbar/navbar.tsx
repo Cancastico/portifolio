@@ -5,6 +5,7 @@ import { useTheme } from "@/contexts/theme";
 import { Moon, Sun } from "lucide-react";
 import { Button } from "../ui/button";
 import ThemingButton from "../themingButton/themingButton";
+import Link from "next/link";
 
 export default function Navbar() {
 
@@ -21,16 +22,16 @@ export default function Navbar() {
       <nav className="flex-row gap-20 hidden md:flex">
         <ul className="flex flex-row md:gap-5 xl:gap-10 items-center">
           <li>
-            <a className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-200" href="#home">Home</a>
+            <Link className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-200" href="/">Home</Link>
           </li>
           <li>
-            {/* <a className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100" href="#">Meu Blog</a> */}
+            <Link className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100" href="/myblog">Meu Blog</Link>
           </li>
           <li>
-            <a className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100" href="#projetos">Projetos</a>
+            <Link className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100" href="/#projetos">Projetos</Link>
           </li>
           <li>
-            <a className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100" href="#contato">Contato</a>
+            <Link className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100" href="/#contato">Contato</Link>
           </li>
         </ul>
 

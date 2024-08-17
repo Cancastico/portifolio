@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Cancastico - Portifolio',
+  title: 'Cancastico | Portifolio',
   description: 'My Portfolio',
   icons: {
     icon: '/ico.svg', // Aqui não há problema, pode ser mantido

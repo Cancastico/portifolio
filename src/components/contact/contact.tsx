@@ -95,7 +95,7 @@ export default function Contact() {
 
         {submited && (
           <div
-            className='absolute w-full h-full p-10 top-0 left-0 z-20 transition-all duration-1000'
+            className='absolute w-full h-full p-10 top-0 left-0 z-20 transition-all duration-1000 ease-in-out'
           >
             <Player
               autoplay
