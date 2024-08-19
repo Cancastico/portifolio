@@ -23,7 +23,7 @@ export async function POST(req: Request) {
   }
 
   // Gera o token JWT com o ID do usuário
-  const token = generateToken({ userId: user.id });
+  const token = await generateToken({ userId: user.id });
 
   return NextResponse.json({ message: 'Login bem-sucedido!', token });
 }

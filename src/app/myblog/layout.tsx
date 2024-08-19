@@ -1,3 +1,4 @@
+
 import { AuthProvider } from "@/contexts/authContext";
 import { useTheme } from "@/contexts/theme";
 import { ToastContainer } from "react-toastify";
@@ -7,7 +8,6 @@ export default function Layout({
 }: {
   children: React.ReactNode;
 }) {
-  const { theme } = useTheme()
 
   return <>
     <ToastContainer
@@ -20,7 +20,6 @@ export default function Layout({
       pauseOnFocusLoss={false}
       draggable
       pauseOnHover
-      theme={theme}
     />
     <AuthProvider>{children}</AuthProvider>;
   </>

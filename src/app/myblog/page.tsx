@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use client'
 
 import Footer from "@/components/footer/footer";
@@ -17,6 +18,8 @@ import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from 'react-toastify';
 import { z } from "zod";
 import { fileToBase64 } from "../utils/converters/fileToBase64";
+import axios from "axios";
+import { AxiosNode } from "@/services/axios";
 
 const postSchema = z.object({
   post: z.array(
@@ -57,9 +60,11 @@ export default function MyBlog() {
     }
   }
 
+
   const onSubmit = (data: FormValues) => {
-    console.log(data);
-    // Manipule o envio do post aqui
+    AxiosNode.post('/api/post', data).then((response) => {
+      console.log(response.data)
+    })
   };
 
   function addSection(type: 'paragraph' | 'image') {
@@ -88,7 +93,7 @@ export default function MyBlog() {
               <p className="text-sm text-primary font-semibold">{`</h1>`}</p>
             </div>
           </article>
-          
+
           {isAuthenticated && (
             <div onClick={() => { setAdding(true) }} className="cursor-pointer fixed right-8 bottom-8 border-primary border-2 bg-background-primary hover:bg-background-primary/80 transition-all ease-out dark:bg-background-dark dark:hover:bg-background-dark/80 text-primary rounded-full">
               <PlusIcon size={38} />

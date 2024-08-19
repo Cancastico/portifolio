@@ -1,3 +1,4 @@
+"use client"
 import { createContext, useState, useContext, ReactNode } from 'react';
 
 // Define o tipo para o contexto do tema

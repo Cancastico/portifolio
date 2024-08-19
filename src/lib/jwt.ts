@@ -1,14 +1,19 @@
-import jwt from 'jsonwebtoken';
+import { jwtVerify, SignJWT, JWTPayload } from 'jose';
 
 const SECRET_KEY = process.env.JWT_SECRET_KEY || 'your_secret_key';
 
-export function generateToken(payload: object) {
-  return jwt.sign(payload, SECRET_KEY, { expiresIn: '1h' });
+export async function generateToken(payload: JWTPayload) {
+  return await new SignJWT(payload)
+    .setProtectedHeader({ alg: 'HS256' })
+    .setExpirationTime('1h')
+    .sign(new TextEncoder().encode(SECRET_KEY));
 }
 
-export function verifyToken(token: string) {
+export async function verifyToken(token: string) {
   try {
-    return jwt.verify(token, SECRET_KEY);
+    const secret = new TextEncoder().encode(SECRET_KEY); // Usando a mesma chave para verificação
+    const response = await jwtVerify(token, secret);
+    return response
   } catch (error) {
     throw new Error('Token inválido.');
   }
