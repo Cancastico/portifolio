@@ -1,11 +1,11 @@
 'use client';
 
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { useState } from 'react';
-import axios from 'axios';
-import { useRouter } from 'next/navigation';
 import Navbar from '@/components/navbar/navbar';
+import { useAuthContext } from '@/contexts/authContext';
 import { ThemeProvider } from '@/contexts/theme';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 interface RegisterFormInputs {
   name: string;
@@ -15,21 +15,16 @@ interface RegisterFormInputs {
 }
 
 export default function RegisterPage() {
+  const { signup } = useAuthContext();
   const { register, handleSubmit, formState: { errors } } = useForm<RegisterFormInputs>();
   const [registerError, setRegisterError] = useState('');
   const router = useRouter();
 
   const onSubmit: SubmitHandler<RegisterFormInputs> = async (data) => {
     setRegisterError('');
-
     try {
-      const res = await axios.post('/api/auth/register', data);
-
-      // Sucesso - Armazenar o token JWT e redirecionar para outra página
-      localStorage.setItem('token', res.data.token);
-      router.push('/dashboard'); // Redireciona para o dashboard ou outra página
+      signup(data);
     } catch (error: any) {
-      // Captura e exibe a mensagem de erro
       setRegisterError(error.response?.data?.error || 'Erro ao registrar');
     }
   };

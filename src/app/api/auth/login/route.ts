@@ -6,11 +6,11 @@ import { generateToken } from '@/lib/jwt';
 const prisma = new PrismaClient();
 
 export async function POST(req: Request) {
-  const { email, password } = await req.json();
+  const { email, password }: { email: string, password: string } = await req.json();
 
   const user = await prisma.user.findUnique({
-    where: { email },
-  }); 
+    where: { email: email.toUpperCase() },
+  });
 
   if (!user) {
     return NextResponse.json({ error: 'Usuário não encontrado.' }, { status: 404 });

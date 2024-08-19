@@ -1,30 +1,23 @@
 'use client';
 
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { useState } from 'react';
-import axios from 'axios';
-import { useRouter } from 'next/navigation';
 import Navbar from '@/components/navbar/navbar';
+import { LoginFormInputs, useAuthContext } from '@/contexts/authContext';
 import { ThemeProvider } from '@/contexts/theme';
+import { useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
-interface LoginFormInputs {
-  email: string;
-  password: string;
-}
+
 
 export default function Login() {
+  const { login } = useAuthContext()
   const { register, handleSubmit, formState: { errors } } = useForm<LoginFormInputs>();
   const [loginError, setLoginError] = useState('');
-  const router = useRouter();
 
   const onSubmit: SubmitHandler<LoginFormInputs> = async (data) => {
     setLoginError('');
 
     try {
-      const res = await axios.post('/api/auth/login', data);
-
-      localStorage.setItem('token', res.data.token);
-      router.push('/dashboard');
+      login(data)
     } catch (error: any) {
       setLoginError(error.response?.data?.error || 'Erro ao fazer login');
     }

@@ -1,11 +1,12 @@
 import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
+import { generateToken } from '@/lib/jwt';
 
 const prisma = new PrismaClient();
 
 export async function POST(req: Request) {
-  const { name, email, password, username } = await req.json();
+  const { name, email, password, username }: { name: string, email: string, password: string, username: string } = await req.json();
 
   // Verifica se o e-mail ou o username já existem
   const existingUser = await prisma.user.findFirst({
@@ -23,11 +24,13 @@ export async function POST(req: Request) {
   const newUser = await prisma.user.create({
     data: {
       name,
-      email,
+      email: email.toUpperCase(),
       password: hashedPassword,
       username,
     },
   });
 
-  return NextResponse.json(newUser, { status: 201 });
+  const token = generateToken({ userId: newUser.id })
+
+  return NextResponse.json({ newUser, token }, { status: 201 });
 }
