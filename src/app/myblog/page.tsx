@@ -13,13 +13,14 @@ import { ThemeProvider, useTheme } from "@/contexts/theme";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Image as ImageIcon, Pilcrow, PlusIcon, Trash } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from 'react-toastify';
 import { z } from "zod";
 import { fileToBase64 } from "../utils/converters/fileToBase64";
 import axios from "axios";
 import { AxiosNode } from "@/services/axios";
+import { Prisma } from "@prisma/client";
 
 const postSchema = z.object({
   post: z.array(
@@ -36,6 +37,7 @@ export default function MyBlog() {
   const { isAuthenticated } = useAuthContext();
   const [adding, setAdding] = useState<boolean>(false);
   const [popoverOpen, setPopoverOpen] = useState<boolean>(false);
+  const [posts, setPosts] = useState<Prisma.PostGetPayload<{ include: { sections: true, author: true } }>[]>([]);
 
   const { register, handleSubmit, setValue, getValues, formState: { errors }, watch } = useForm<FormValues>({
     resolver: zodResolver(postSchema),
@@ -60,10 +62,19 @@ export default function MyBlog() {
     }
   }
 
+  async function getPosts(page: number) {
+    try {
+      const response = await AxiosNode.get(`/api/blogData?page=${page}`);
+      setPosts(response.data.posts);
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+    }
+  }
+
 
   const onSubmit = (data: FormValues) => {
     AxiosNode.post('/api/post', data).then((response) => {
-      console.log(response.data)
+      getPosts(0)
     })
   };
 
@@ -79,6 +90,10 @@ export default function MyBlog() {
     setValue('post', updatedPost);
   }
 
+  useEffect(() => {
+    getPosts(0)
+  }, [])
+
   return (
     <>
 
@@ -92,7 +107,19 @@ export default function MyBlog() {
               <p className="font-light font-ubuntu text-[2.5rem] text-primary px-3">Meus Posts</p>
               <p className="text-sm text-primary font-semibold">{`</h1>`}</p>
             </div>
+            <div>
+              {posts.map((post, index) => {
+                console.log(post)
+                return (
+                  <div className="text-black" key={index}>
+                    {post.author.name}
+                  </div>
+                )
+              })}
+            </div>
           </article>
+
+
 
           {isAuthenticated && (
             <div onClick={() => { setAdding(true) }} className="cursor-pointer fixed right-8 bottom-8 border-primary border-2 bg-background-primary hover:bg-background-primary/80 transition-all ease-out dark:bg-background-dark dark:hover:bg-background-dark/80 text-primary rounded-full">

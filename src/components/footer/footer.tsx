@@ -10,9 +10,9 @@ export default function Footer() {
 
   const email = "carlosaaugusto2002@outlook.com";
 
-    const handleCopyEmail = () => {
-      navigator.clipboard.writeText(email);
-    };
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(email);
+  };
 
 
   return (
@@ -41,7 +41,7 @@ export default function Footer() {
           </div> */}
           <div className="flex items-center gap-2 hover:text-primary hover:underline bg-transparent">
             <LinkedinIcon className="w-4 h-4" />
-            <Link href="https://www.linkedin.com/in/carlos-augusto-176120164/" target="_blank" prefetch={false}>
+            <Link href="https://www.linkedin.com/in/dev-carlos-avelino/" target="_blank" prefetch={false}>
               Carlos Augusto
             </Link>
           </div>

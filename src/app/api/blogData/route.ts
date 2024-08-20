@@ -15,6 +15,7 @@ export async function GET(req: NextRequest) {
     const posts = await prisma.post.findMany({
       take: 20,
       skip: page * 20,
+      include: { author: true, sections: true }
     });
 
     return NextResponse.json({ posts });
