@@ -114,7 +114,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const login = async (data: LoginFormInputs) => {
     await axios.post("/api/auth/login", data).then((response) => {
       if (response && response.status == 200 || response.status == 201) {
-        console.log(response.data)
         localStorage.setItem("token", response.data.token);
 
         setIsAuthenticated(response.status == 200 || response.status == 201);

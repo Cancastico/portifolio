@@ -49,7 +49,7 @@ export async function DELETE(req: NextRequest, { params }: { params: { id: strin
   }
 
   try {
-    const user = verifyToken(token) as { userId: number };
+    const user = verifyToken(token) as any as { userId: number };
     await prisma.post.delete({ where: { id: postId, authorId: user.userId } });
     return NextResponse.json({ message: 'Post excluído com sucesso.' });
   } catch (error) {

@@ -1,5 +1,5 @@
 "use client"
-import { createContext, useState, useContext, ReactNode } from 'react';
+import { createContext, useState, useContext, ReactNode, useEffect } from 'react';
 
 // Define o tipo para o contexto do tema
 interface ThemeContextType {
@@ -17,7 +17,18 @@ interface ThemeProviderProps {
 
 // Cria o provider para o tema
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [theme, setTheme] = useState<string>('light');
+  const [theme, setTheme] = useState<string>('dark');
+
+
+  useEffect(() => {
+    const storage = localStorage.getItem('theme');
+    if (storage) {
+      setTheme(storage)
+    } else {
+      localStorage.setItem('theme', theme);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>

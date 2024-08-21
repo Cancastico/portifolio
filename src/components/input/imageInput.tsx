@@ -1,4 +1,4 @@
-import { Image } from "lucide-react";
+import { ImageIcon } from "lucide-react";
 import { Input } from "../ui/input";
 
 type ImageInputProps = {
@@ -29,7 +29,7 @@ export default function ImageInput({ register, onImageSelect }: ImageInputProps)
         {...register} // Integrating with react-hook-form
       />
       <p className="absolute left-[10%] md:left-[45%] top-[37%] flex gap-2 -z-10">
-        <Image />
+        <ImageIcon />
         Selecionar Imagem
       </p>
     </div>

@@ -5,7 +5,6 @@ import Footer from '@/components/footer/footer';
 import Header from '@/components/header/header';
 import Projects from '@/components/projects/project';
 import Skills from '@/components/skills/skills';
-import { ThemeProvider } from '@/contexts/theme';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
@@ -21,7 +20,7 @@ export default function Home() {
 
 
   return (
-    <ThemeProvider>
+    <>
       <div className={` absolute  w-full h-full flex justify-center items-center transition-all duration-500 bg-background-primary dark:bg-background-dark ${fade ? 'opacity-0 -z-10' : 'opacity-100 z-10'}`}>
         <iframe className="w-36 h-36" src="https://lottie.host/embed/70be1c08-ce15-46f5-8080-7778706b658a/JIyr1XWD2a.json"></iframe>
       </div>
@@ -34,6 +33,6 @@ export default function Home() {
         <Footer />
 
       </main>
-    </ThemeProvider>
+    </>
   );
 }

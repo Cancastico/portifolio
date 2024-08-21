@@ -2,7 +2,6 @@
 
 import Navbar from '@/components/navbar/navbar';
 import { LoginFormInputs, useAuthContext } from '@/contexts/authContext';
-import { ThemeProvider } from '@/contexts/theme';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
@@ -24,7 +23,7 @@ export default function Login() {
   };
 
   return (
-    <ThemeProvider>
+    <>
       <Navbar />
       <div className="flex justify-center items-center h-screen">
 
@@ -63,6 +62,6 @@ export default function Login() {
           </button>
         </form>
       </div>
-    </ThemeProvider>
+    </>
   );
 }

@@ -11,10 +11,8 @@ export async function middleware(req: NextRequest) {
   try {
     // Verifica o token
     await verifyToken(token);
-    console.log('Token validado com sucesso');
     return NextResponse.next(); // Permite a requisição continuar
   } catch (error) {
-    console.log('Erro de autenticação:', error);
     return NextResponse.json({ error: 'Token inválido ou expirado.' }, { status: 401 });
   }
 }

@@ -59,4 +59,5 @@ enum PostType {
   subtitle
   image
   paragraph
+  banner
 }

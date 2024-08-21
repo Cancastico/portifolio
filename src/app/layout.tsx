@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 
 import './globals.css';
+import { ThemeProvider } from "@/contexts/theme";
 
 export const metadata: Metadata = {
   title: 'Cancastico | Portifolio',
@@ -32,8 +33,9 @@ export default function RootLayout({
       </head>
       <body
         className={`relative bg-background-dark font-ibmPlexMono overflow-y-auto transition-all ease-in-out scroll-smooth scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-w-1 scrollbar scrollbar-track-transparent dark:scrollbar-track-background-dark scrollbar-thumb-primary hover:scrollbar-track-[#f1f5f9]`}
-      >
+      > <ThemeProvider>
         {children}
+      </ThemeProvider>
       </body>
     </html>
   );

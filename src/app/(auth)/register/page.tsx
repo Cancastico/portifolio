@@ -2,7 +2,6 @@
 
 import Navbar from '@/components/navbar/navbar';
 import { useAuthContext } from '@/contexts/authContext';
-import { ThemeProvider } from '@/contexts/theme';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -30,7 +29,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <ThemeProvider>
+    <>
       <Navbar />
       <div className="flex justify-center items-center p-6">
         <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-6 rounded-lg shadow-md w-80">
@@ -90,6 +89,6 @@ export default function RegisterPage() {
           </button>
         </form>
       </div>
-    </ThemeProvider>
+    </>
   );
 }
