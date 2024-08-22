@@ -2,7 +2,7 @@ import { verifyToken } from '@/lib/jwt';
 import { BaseModel } from '@/models/baseModel';
 import { Post } from '@/models/postModel';
 import { NextRequest, NextResponse } from 'next/server';
-import { PrismaClient } from '../../../../../prisma/database/main';
+import {PrismaClient} from '@prisma/client'
 
 const prisma = new PrismaClient();
 

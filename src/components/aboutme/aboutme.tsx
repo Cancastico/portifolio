@@ -1,5 +1,6 @@
-import Image from "next/image";
 import background from '@/../public/backgroundAboutme.png';
+import codingPeople from '@/../public/codingPeople.json';
+import { Player } from "@lottiefiles/react-lottie-player";
 
 export default function About() {
   return (
@@ -26,7 +27,13 @@ export default function About() {
               <p className="text-sm text-primary font-semibold bg-transparent">{`</p>`}</p>
             </div>
           </div>
-          <iframe className=" flex flex-col gap-10 py-12 bg-transparent w-full md:w-[40%]" src="https://lottie.host/embed/da011d71-994a-4d22-bff8-1dbe97ff2515/BsUPtgrVDv.json"></iframe>
+          
+          <div className=" flex flex-col gap-10 py-12 bg-transparent w-full md:w-[40%]">
+          <Player
+              autoplay
+              src={codingPeople}
+            ></Player>
+          </div>
 
         </div>
       </section>

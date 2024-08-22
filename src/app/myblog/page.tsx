@@ -25,7 +25,9 @@ import { useTheme } from "@/contexts/theme";
 import { useRouter } from "next/navigation";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
-import { Prisma } from "../../../prisma/database/main";
+
+import { calcReadTime } from "../utils/converters/calcReadTime";
+import { Prisma } from "@prisma/client";
 
 const postSchema = z.object({
   post: z.array(
@@ -98,7 +100,6 @@ export default function MyBlog() {
   }
 
 
-  useEffect(() => { console.log(watch('post')) }, [watch('post')])
   useEffect(() => {
     getPosts(0)
   }, [])
@@ -114,15 +115,24 @@ export default function MyBlog() {
             <p className="font-light font-ubuntu text-[2.5rem] text-primary px-3">Meus Posts</p>
             <p className="text-sm text-primary font-semibold">{`</h1>`}</p>
           </div>
-          <div className="flex flex-wrap justify-center md:justify-start gap-5 pt-8">
+          <div className="flex flex-wrap justify-center md:justify-start gap-5 py-8">
             {posts.length > 0 ? (
               posts.map((post, index) => {
 
                 const title = post.sections.find(section => section.type == 'title')?.content;
                 const banner = post.sections.find(section => section.type == 'banner')?.content;
+                const timeReading = calcReadTime(
+                  post.sections.map((section) => {
+                    if (section.type != 'banner' && section.type != 'image') {
+                      return section.content!
+                    } else {
+                      return ''
+                    }
+                  })!
+                )
 
                 return (
-                  <div key={index} className={`group hover:border-[1px] hover:border-primary  cursor-pointer hover:shadow-md  hover:shadow-primary/40 text-black/70 dark:text-white w-[16rem] h-fit rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out bg-zinc-200 dark:bg-zinc-700`}>
+                  <div key={index} className={`group border-zinc-300/80 dark:border-zinc-600/80 border-[1px] hover:border-primary dark:hover:border-primary  cursor-pointer hover:shadow-md  hover:shadow-primary/40 text-black/70 dark:text-white w-[16rem] h-fit rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out`}>
                     <div className="flex flex-row-reverse items-center gap-1 md:opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out p-1">
 
                       <Popover>
@@ -138,27 +148,40 @@ export default function MyBlog() {
                         <DialogTrigger>
                           <Button className="text-white font-sm font-semibold font-ibmPlexMono h-[1.5rem] p-2 flex gap-1">  Ler Post <SquareArrowOutUpRight size={16} /></Button>
                         </DialogTrigger>
-                        <DialogContent className={`${theme == 'light' ? 'bg-background-primary' : 'bg-background-dark'} p-0 ring-0 border-none`}>
-                          <div className="w-[45vw] h-full flex flex-col gap-5">
+                        <DialogContent className={`${theme == 'light' ? 'bg-background-primary' : 'bg-background-dark'} -translate-y-[44%] md:-translate-y-[50%]  p-0 ring-0 border-none h-[90vh] overflow-y-auto scroll-smooth scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-w-1 scrollbar scrollbar-track-transparent dark:scrollbar-track-background-dark scrollbar-thumb-primary hover:scrollbar-track-transparent`}>
+                          <div className="w-[100dvw] md:w-[45vw] h-full flex flex-col gap-1 pb-[3rem]">
                             {post.sections.map((section, index) => {
                               if (section.type == 'banner') {
                                 return (
-                                  <div key={index} className="w-full h-[25rem] rounded-t-lg bg-cover" style={{ backgroundImage: `url(${section.content})` }}>
+                                  <div key={index} className="w-full h-[13rem] rounded-t-lg bg-cover" style={{ backgroundImage: `url(${section.content})` }}>
                                     {/* <Image className={cn("w-full max-h-[20rem]")} src={section.content!} width={1000} height={1000} alt="banner"></Image> */}
                                   </div>
                                 )
                               }
 
+                              if (section.type == 'image') {
+                                console.log('Imagem Computada')
+                                return (
+                                  <div key={index} className="w-[100dvw] md:w-[45dvw] min-h-[10rem] rounded-t-lg bg-cover px-[1rem] md:px-[3rem]">
+                                    <Image className={cn("w-full")} src={section.content!} width={1000} height={1000} alt="banner"></Image>
+                                  </div>
+                                )
+                              }
+
                               if (section.type == 'title') {
-                                return (<h1 key={index}>{section.content}</h1>)
+                                return (<h1 key={index} className="pl-2 xl:pl-[2rem] font-medium text-[3rem] font-ubuntu text-primary capitalize">{section.content}</h1>)
                               }
 
                               if (section.type == 'paragraph') {
-                                return (<h1 key={index} className="text-wrap w-{45vw}">{section.content}</h1>)
+                                return (
+                                  <div className="max-w-full" key={index}>
+                                    <p className={`text-wrap flex w-full truncate font-ibmPlexMono px-3 xl:px-[3rem] text-justify py-1 ${theme == 'light'?'text-black':'text-white'}`}>{section.content}</p>
+                                  </div>
+                                )
                               }
 
                               if (section.type == 'subtitle') {
-                                return (<h1 key={index}>{section.content}</h1>)
+                                return (<h1 key={index} className="pl-3 xl:pl-[3rem] font-medium text-xl font-ubuntu text-primary capitalize">{section.content}</h1>)
                               }
                             })}
                           </div>
@@ -167,7 +190,11 @@ export default function MyBlog() {
                     </div>
                     <div className="p-3">
                       <h1 className="text-wrap text-xl font-bold font-ibmPlexMono h-[3rem]">{title}</h1>
-                      <p className="text-sm bg-zinc-600 w-fit px-2 text-zinc-300 rounded-lg">{DateToDDMM(post.created_at)}</p>
+                      <div className="flex gap-2 items-end">
+                        <p className="text-sm bg-zinc-300 text-zinc-600 dark:bg-zinc-600  w-fit px-2 dark:text-zinc-300 rounded-lg">{DateToDDMM(post.created_at)}</p>
+                        <p className="text-[0.7rem] text-zinc-700 font-medium  dark:text-zinc-400   w-fit px-2 rounded-lg">{timeReading} m read time</p>
+
+                      </div>
                     </div>
                     <div className="p-3 pt-0">
                       <Image className="object-fill rounded-lg h-[10rem]" width={1000} height={1000} src={banner!} alt="imagem"></Image>
@@ -251,7 +278,7 @@ export default function MyBlog() {
 
       {/* MODAL CREATE POST */}
       <ModalLarge open={adding} close={() => { reset() }}>
-        <div className="w-full h-[80dvh] flex flex-col gap-5">
+        <div className="w-[98dvw] md:w-[45vw] h-[80dvh] flex flex-col gap-5">
           <p className="font-ubuntu font-light text-center text-[1.5rem]">Criar Post</p>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="relative flex flex-col gap-1">
@@ -334,13 +361,13 @@ export default function MyBlog() {
                                 Excluir Imagem
                               </Button>
                             </div>
-                            <Image className="object-fill max-w-full md:max-h-[25rem]" width={1000} height={1000} src={stretch.content!} alt="imagem"></Image>
+                            <Image className="object-fill md:max-h-[25rem]" width={1000} height={1000} src={stretch.content!} alt="imagem"></Image>
                           </div>
                         ) : (
                           <>
                             <Input
                               type="file"
-                              className="w-full h-[5rem] md:h-[25rem] cursor-pointer text-transparent opacity-0 ring-0 border-1 text-sm focus:ring-0 focus-visible:ring-0 shadow-none"
+                              className="w-full h-[5rem] md:h-[13rem] cursor-pointer text-transparent opacity-0 ring-0 border-1 text-sm focus:ring-0 focus-visible:ring-0 shadow-none"
                               {...register(`post.${index}.content`, {
                                 onChange: (e) => {
                                   console.log(e)

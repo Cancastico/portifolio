@@ -1,16 +1,8 @@
-import { DiscordLogoIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
-import { Switch } from "../ui/switch";
-import { Label } from "../ui/label";
-import { useTheme } from "@/contexts/theme";
-import { Moon, Sun } from "lucide-react";
-import { Button } from "../ui/button";
-import ThemingButton from "../themingButton/themingButton";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
+import ThemingButton from "../themingButton/themingButton";
 
 export default function Navbar() {
-
-
-
   return (
     <header className=" flex flex-row justify-between items-center w-full h-20 bg-background-primary dark:bg-background-dark md:px-[8rem] xxl:px-[16rem]">
 

@@ -1,7 +1,8 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
-// import { useForm } from "react-hook-form";
+import submitedAnimation from '@/../public/sucessSubmit.json';
 import { useForm as formSpree } from '@formspree/react';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Player } from '@lottiefiles/react-lottie-player';
+import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -10,9 +11,7 @@ import ZodInputContainer from "../input/inputTextZod";
 import { Button } from '../ui/button';
 import { Input } from "../ui/input";
 import Loading from '../ui/loading';
-import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import { Textarea } from "../ui/textarea";
-import submitedAnimation from '@/../public/sucessSubmit.json'
 
 export default function Contact() {
   const [submiting, setSubmiting] = useState<boolean>(false);
@@ -76,13 +75,13 @@ export default function Contact() {
           </div>
           <div className=' flex gap-3 justify-center md:justify-normal'>
             <Link href="https://github.com/Cancastico" target='_blank'>
-              <Button className='bg-inherit/10 text-primary-foreground hover:text-white transition-all dark:text-white border-2 border-primary rounded-none flex gap-1'>
+              <Button className='bg-inherit/10 text-primary-foreground hover:text-white transition-all dark:text-white border-2 border-primary rounded-lg flex gap-1'>
                 <GitHubLogoIcon className='w-6 h-6' />
                 Github
               </Button>
             </Link>
             <Link href="https://www.linkedin.com/in/dev-carlos-avelino/" target='_blank'>
-              <Button className='bg-inherit/10 text-primary-foreground hover:text-white transition-all dark:text-white border-2 border-primary rounded-none flex gap-1'>
+              <Button className='bg-inherit/10 text-primary-foreground rounded-lg hover:text-white transition-all dark:text-white border-2 border-primary flex gap-1'>
                 <LinkedInLogoIcon className='w-6 h-6' />
                 LinkedIn
               </Button>
@@ -125,7 +124,7 @@ export default function Contact() {
         </ZodInputContainer>
 
         <div className='w-full flex flex-row-reverse bg-transparent'>
-          <Button disabled={submiting} className=' w-[6rem] relative gap-2 rounded-none bg-primary text-white dark:text-black hover:bg-primary-foreground'>
+          <Button disabled={submiting} className=' w-[6rem] relative gap-2 rounded-lg bg-primary text-white dark:text-black hover:bg-primary-foreground'>
             {
               submiting ? (
                 <div className='absolute left-auto top-auto w-6 h-6'>

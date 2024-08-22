@@ -1,8 +1,3 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/xf9ANuZbksz
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
 import Link from "next/link";
 import ThemingButton from "../themingButton/themingButton";
 
@@ -28,7 +23,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-2 hover:text-primary hover:underline bg-transparent">
             <MailIcon className="w-4 h-4" />
-            <Link href="" onClick={(e) => {
+            <Link href={`emailto:${email}`} onClick={(e) => {
               e.preventDefault();
               handleCopyEmail();
             }} prefetch={false}>
