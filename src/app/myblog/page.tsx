@@ -11,7 +11,6 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { useAuthContext } from "@/contexts/authContext";
 import { AxiosNode } from "@/services/axios";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Prisma } from "@prisma/client";
 import { CopyIcon, EllipsisVertical, Image as ImageIcon, Pilcrow, PlusIcon, SquareArrowOutUpRight, Trash } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,6 +25,7 @@ import { useTheme } from "@/contexts/theme";
 import { useRouter } from "next/navigation";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
+import { Prisma } from "../../../prisma/database/main";
 
 const postSchema = z.object({
   post: z.array(
@@ -140,25 +140,25 @@ export default function MyBlog() {
                         </DialogTrigger>
                         <DialogContent className={`${theme == 'light' ? 'bg-background-primary' : 'bg-background-dark'} p-0 ring-0 border-none`}>
                           <div className="w-[45vw] h-full flex flex-col gap-5">
-                            {post.sections.map((section) => {
+                            {post.sections.map((section, index) => {
                               if (section.type == 'banner') {
                                 return (
-                                  <div className="w-full h-[25rem] rounded-t-lg bg-cover" style={{ backgroundImage: `url(${section.content})` }}>
+                                  <div key={index} className="w-full h-[25rem] rounded-t-lg bg-cover" style={{ backgroundImage: `url(${section.content})` }}>
                                     {/* <Image className={cn("w-full max-h-[20rem]")} src={section.content!} width={1000} height={1000} alt="banner"></Image> */}
                                   </div>
                                 )
                               }
 
                               if (section.type == 'title') {
-                                return (<h1>{section.content}</h1>)
+                                return (<h1 key={index}>{section.content}</h1>)
                               }
 
                               if (section.type == 'paragraph') {
-                                return (<h1 className="text-wrap w-{45vw}">{section.content}</h1>)
+                                return (<h1 key={index} className="text-wrap w-{45vw}">{section.content}</h1>)
                               }
 
                               if (section.type == 'subtitle') {
-                                return (<h1>{section.content}</h1>)
+                                return (<h1 key={index}>{section.content}</h1>)
                               }
                             })}
                           </div>

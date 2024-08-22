@@ -1,8 +1,8 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { PrismaClient } from '@prisma/client';
 import { verifyToken } from '@/lib/jwt';
-import { Post } from '@/models/postModel';
 import { BaseModel } from '@/models/baseModel';
+import { Post } from '@/models/postModel';
+import { NextRequest, NextResponse } from 'next/server';
+import { PrismaClient } from '../../../../../prisma/database/main';
 
 const prisma = new PrismaClient();
 

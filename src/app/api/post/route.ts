@@ -1,7 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { PrismaClient } from '@prisma/client';
 import { verifyToken } from '@/lib/jwt'; // Importar função para verificar o JWT
 import { Post } from '@/models/postModel';
+import { NextRequest, NextResponse } from 'next/server';
+import { PrismaClient } from '../../../../prisma/database/main';
 
 const prisma = new PrismaClient();
 
