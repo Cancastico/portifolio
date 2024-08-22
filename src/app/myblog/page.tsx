@@ -132,74 +132,65 @@ export default function MyBlog() {
                 )
 
                 return (
-                  <div key={index} className={`group border-zinc-300/80 dark:border-zinc-600/80 border-[1px] hover:border-primary dark:hover:border-primary  cursor-pointer hover:shadow-md  hover:shadow-primary/40 text-black/70 dark:text-white w-[16rem] h-fit rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out`}>
-                    <div className="flex flex-row-reverse items-center gap-1 md:opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out p-1">
+                  <Dialog key={index}>
+                    <DialogTrigger>
+                      <div className={`group border-zinc-300/80 dark:border-zinc-600/80 border-[1px] hover:border-primary dark:hover:border-primary  cursor-pointer hover:shadow-md  hover:shadow-primary/40 text-black/70 dark:text-white w-[16rem] h-fit rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out`}>
+                        <div className="flex flex-row-reverse items-center gap-1 md:opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out pt-3 pr-3">
+                          <Button className="text-white font-sm font-semibold font-ibmPlexMono h-[1.5rem] p-3 flex gap-1">  Ler Post <SquareArrowOutUpRight size={16} /></Button>
+                        </div>
+                        <div className="p-3">
+                          <h1 className="text-wrap text-xl font-bold font-ibmPlexMono h-[3rem]">{title}</h1>
+                          <div className="flex gap-2 items-end">
+                            <p className="text-sm bg-zinc-300 text-zinc-600 dark:bg-zinc-600  w-fit px-2 dark:text-zinc-300 rounded-lg">{DateToDDMM(post.created_at)}</p>
+                            <p className="text-[0.7rem] text-zinc-700 font-medium  dark:text-zinc-400   w-fit px-2 rounded-lg">{timeReading} m read time</p>
 
-                      <Popover>
-                        <PopoverTrigger className="shadow-none">
-                          <Button className="bg-transparent shadow-none drop-shadow-none hover:bg-white/10 dark:hover:bg-black/10 p-0 m-0 dark:text-white text-black"><EllipsisVertical size={20} /></Button>
-                        </PopoverTrigger>
-                        <PopoverContent sticky="partial" align="start" side={"top"} className={`p-1 ${theme == 'light' ? 'bg-zinc-300 text-black' : 'bg-zinc-700 text-white hover:bg-zinc-600'} transition-colors duration-300 m-0 min-w-0 border-none ring-0 ring-offset-0`}>
-                          <Link className="w-fit text-sm flex flex-row items-center gap-1 px-1" href={'#'}> <CopyIcon /> Copiar Link</Link>
-                        </PopoverContent>
-                      </Popover>
-
-                      <Dialog>
-                        <DialogTrigger>
-                          <Button className="text-white font-sm font-semibold font-ibmPlexMono h-[1.5rem] p-2 flex gap-1">  Ler Post <SquareArrowOutUpRight size={16} /></Button>
-                        </DialogTrigger>
-                        <DialogContent className={`${theme == 'light' ? 'bg-background-primary' : 'bg-background-dark'} -translate-y-[44%] md:-translate-y-[50%]  p-0 ring-0 border-none h-[90vh] overflow-y-auto scroll-smooth scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-w-1 scrollbar scrollbar-track-transparent dark:scrollbar-track-background-dark scrollbar-thumb-primary hover:scrollbar-track-transparent`}>
-                          <div className="w-[100dvw] md:w-[45vw] h-full flex flex-col gap-1 pb-[3rem]">
-                            {post.sections.map((section, index) => {
-                              if (section.type == 'banner') {
-                                return (
-                                  <div key={index} className="w-full h-[13rem] rounded-t-lg bg-cover" style={{ backgroundImage: `url(${section.content})` }}>
-                                    {/* <Image className={cn("w-full max-h-[20rem]")} src={section.content!} width={1000} height={1000} alt="banner"></Image> */}
-                                  </div>
-                                )
-                              }
-
-                              if (section.type == 'image') {
-                                console.log('Imagem Computada')
-                                return (
-                                  <div key={index} className="w-[100dvw] md:w-[45dvw] min-h-[10rem] rounded-t-lg bg-cover px-[1rem] md:px-[3rem]">
-                                    <Image className={cn("w-full")} src={section.content!} width={1000} height={1000} alt="banner"></Image>
-                                  </div>
-                                )
-                              }
-
-                              if (section.type == 'title') {
-                                return (<h1 key={index} className="pl-2 xl:pl-[2rem] font-medium text-[3rem] font-ubuntu text-primary capitalize">{section.content}</h1>)
-                              }
-
-                              if (section.type == 'paragraph') {
-                                return (
-                                  <div className="max-w-full" key={index}>
-                                    <p className={`text-wrap flex w-full truncate font-ibmPlexMono px-3 xl:px-[3rem] text-justify py-1 ${theme == 'light'?'text-black':'text-white'}`}>{section.content}</p>
-                                  </div>
-                                )
-                              }
-
-                              if (section.type == 'subtitle') {
-                                return (<h1 key={index} className="pl-3 xl:pl-[3rem] font-medium text-xl font-ubuntu text-primary capitalize">{section.content}</h1>)
-                              }
-                            })}
                           </div>
-                        </DialogContent>
-                      </Dialog>
-                    </div>
-                    <div className="p-3">
-                      <h1 className="text-wrap text-xl font-bold font-ibmPlexMono h-[3rem]">{title}</h1>
-                      <div className="flex gap-2 items-end">
-                        <p className="text-sm bg-zinc-300 text-zinc-600 dark:bg-zinc-600  w-fit px-2 dark:text-zinc-300 rounded-lg">{DateToDDMM(post.created_at)}</p>
-                        <p className="text-[0.7rem] text-zinc-700 font-medium  dark:text-zinc-400   w-fit px-2 rounded-lg">{timeReading} m read time</p>
-
+                        </div>
+                        <div className="p-3 pt-0">
+                          <Image className="object-fill rounded-lg h-[10rem]" width={1000} height={1000} src={banner!} alt="imagem"></Image>
+                        </div>
                       </div>
-                    </div>
-                    <div className="p-3 pt-0">
-                      <Image className="object-fill rounded-lg h-[10rem]" width={1000} height={1000} src={banner!} alt="imagem"></Image>
-                    </div>
-                  </div>
+                    </DialogTrigger>
+                    <DialogContent className={`${theme == 'light' ? 'bg-background-primary' : 'bg-background-dark'} -translate-y-[44%] md:-translate-y-[50%]  p-0 ring-0 border-none h-[90vh] overflow-y-auto scroll-smooth scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-w-1 scrollbar scrollbar-track-transparent dark:scrollbar-track-background-dark scrollbar-thumb-primary hover:scrollbar-track-transparent`}>
+                      <div className="w-[100dvw] md:w-[45vw] h-full flex flex-col gap-1 pb-[3rem]">
+                        {post.sections.map((section, index) => {
+                          if (section.type == 'banner') {
+                            return (
+                              <div key={index} className="w-full h-[13rem] rounded-t-lg bg-cover" style={{ backgroundImage: `url(${section.content})` }}>
+                                {/* <Image className={cn("w-full max-h-[20rem]")} src={section.content!} width={1000} height={1000} alt="banner"></Image> */}
+                              </div>
+                            )
+                          }
+
+                          if (section.type == 'image') {
+                            console.log('Imagem Computada')
+                            return (
+                              <div key={index} className="w-[100dvw] md:w-[45dvw] min-h-[10rem] rounded-t-lg bg-cover px-[1rem] md:px-[3rem]">
+                                <Image className={cn("w-full")} src={section.content!} width={1000} height={1000} alt="banner"></Image>
+                              </div>
+                            )
+                          }
+
+                          if (section.type == 'title') {
+                            return (<h1 key={index} className="pl-2 xl:pl-[2rem] font-medium text-[3rem] font-ubuntu text-primary capitalize">{section.content}</h1>)
+                          }
+
+                          if (section.type == 'paragraph') {
+                            return (
+                              <div className="max-w-full" key={index}>
+                                <p className={`text-wrap flex w-full truncate font-ibmPlexMono px-3 xl:px-[3rem] text-justify py-1 ${theme == 'light' ? 'text-black' : 'text-white'}`}>{section.content}</p>
+                              </div>
+                            )
+                          }
+
+                          if (section.type == 'subtitle') {
+                            return (<h1 key={index} className="pl-3 xl:pl-[3rem] font-medium text-xl font-ubuntu text-primary capitalize">{section.content}</h1>)
+                          }
+                        })}
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+
                 )
               })
 

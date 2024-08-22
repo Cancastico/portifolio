@@ -23,7 +23,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-2 hover:text-primary hover:underline bg-transparent">
             <MailIcon className="w-4 h-4" />
-            <Link href={`emailto:${email}`} onClick={(e) => {
+            <Link href={`mailto:${email}`} onClick={(e) => {
               e.preventDefault();
               handleCopyEmail();
             }} prefetch={false}>
