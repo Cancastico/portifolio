@@ -12,7 +12,7 @@ import { useAuthContext } from "@/contexts/authContext";
 import { AxiosNode } from "@/services/axios";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Prisma } from "@prisma/client";
-import { EllipsisVertical, Image as ImageIcon, Pilcrow, PlusIcon, SquareArrowOutUpRight, Trash } from "lucide-react";
+import { CopyIcon, EllipsisVertical, Image as ImageIcon, Pilcrow, PlusIcon, SquareArrowOutUpRight, Trash } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -22,6 +22,10 @@ import { z } from "zod";
 import { DateToDDMM } from "../utils/converters/dateToDDMM";
 import { fileToBase64 } from "../utils/converters/fileToBase64";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useTheme } from "@/contexts/theme";
+import { useRouter } from "next/navigation";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
 
 const postSchema = z.object({
   post: z.array(
@@ -36,6 +40,7 @@ type FormValues = z.infer<typeof postSchema>;
 
 export default function MyBlog() {
   const { isAuthenticated } = useAuthContext();
+  const { theme } = useTheme()
   const [adding, setAdding] = useState<boolean>(false);
   const [popoverOpen, setPopoverOpen] = useState<boolean>(false);
   const [posts, setPosts] = useState<Prisma.PostGetPayload<{ include: { sections: true, author: true } }>[]>([]);
@@ -51,38 +56,6 @@ export default function MyBlog() {
       ]
     }
   });
-
-  // const skeletons = [
-  //   <div key={1} className={`group hover:border-[2px] hover:border-primary  cursor-pointer hover:shadow-lg hover:shadow-primary/70 text-black/70 dark:text-white w-[16rem] h-fit rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out bg-zinc-200 dark:bg-zinc-700`}>
-  //     <div className="p-3">
-  //       <Skeleton className="text-wrap text-xl font-bold font-ibmPlexMono h-[3rem]"></Skeleton>
-  //       <Skeleton className="text-sm"></Skeleton>
-  //     </div>
-  //     <div className="max-h-[25rem] p-3 pt-0">
-  //       <Skeleton className="object-fill rounded-lg max-h-[10rem]" ></Skeleton>
-  //     </div>
-  //   </div>,
-
-  //   <div key={1} className={`group hover:border-[2px] hover:border-primary  cursor-pointer hover:shadow-lg hover:shadow-primary/70 text-black/70 dark:text-white w-[16rem] h-fit rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out bg-zinc-200 dark:bg-zinc-700`}>
-  //     <div className="p-3">
-  //       <Skeleton className="text-wrap text-xl font-bold font-ibmPlexMono h-[3rem]"></Skeleton>
-  //       <Skeleton className="text-sm"></Skeleton>
-  //     </div>
-  //     <div className="max-h-[25rem] p-3 pt-0">
-  //       <Skeleton className="object-fill rounded-lg max-h-[10rem]" ></Skeleton>
-  //     </div>
-  //   </div>,
-
-  //   <div key={1} className={`group hover:border-[2px] hover:border-primary  cursor-pointer hover:shadow-lg hover:shadow-primary/70 text-black/70 dark:text-white w-[16rem] h-fit rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out bg-zinc-200 dark:bg-zinc-700`}>
-  //     <div className="p-3">
-  //       <Skeleton className="text-wrap text-xl font-bold font-ibmPlexMono h-[3rem]"></Skeleton>
-  //       <Skeleton className="text-sm"></Skeleton>
-  //     </div>
-  //     <div className="max-h-[25rem] p-3 pt-0">
-  //       <Skeleton className="object-fill rounded-lg max-h-[10rem]" ></Skeleton>
-  //     </div>
-  //   </div>,
-  // ]
 
   async function handleFileChange(index: number, file: File) {
     try {
@@ -104,12 +77,11 @@ export default function MyBlog() {
     }
   }
 
-
   const onSubmit = (data: FormValues) => {
-    AxiosNode.post('/api/post', data).then((response) => {
-      console.log('rodou')
+    AxiosNode.post('/api/post', data).then(() => {
       reset();
       getPosts(0)
+      setAdding(false)
     })
   };
 
@@ -125,14 +97,14 @@ export default function MyBlog() {
     setValue('post', updatedPost);
   }
 
+
+  useEffect(() => { console.log(watch('post')) }, [watch('post')])
   useEffect(() => {
     getPosts(0)
   }, [])
 
   return (
     <>
-
-
       <title> Cancastico | Blog</title>
       <Navbar />
       <section className="relative">
@@ -142,7 +114,7 @@ export default function MyBlog() {
             <p className="font-light font-ubuntu text-[2.5rem] text-primary px-3">Meus Posts</p>
             <p className="text-sm text-primary font-semibold">{`</h1>`}</p>
           </div>
-          <div className="flex flex-wrap gap-5 pt-8">
+          <div className="flex flex-wrap justify-center md:justify-start gap-5 pt-8">
             {posts.length > 0 ? (
               posts.map((post, index) => {
 
@@ -150,41 +122,118 @@ export default function MyBlog() {
                 const banner = post.sections.find(section => section.type == 'banner')?.content;
 
                 return (
-                  <div key={index} className={`group hover:border-[2px] hover:border-primary  cursor-pointer hover:shadow-lg hover:shadow-primary/70 text-black/70 dark:text-white w-[16rem] h-fit rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out bg-zinc-200 dark:bg-zinc-700`}>
-                    <div className="flex flex-row-reverse items-center gap-1 md:opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out px-3">
+                  <div key={index} className={`group hover:border-[1px] hover:border-primary  cursor-pointer hover:shadow-md  hover:shadow-primary/40 text-black/70 dark:text-white w-[16rem] h-fit rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out bg-zinc-200 dark:bg-zinc-700`}>
+                    <div className="flex flex-row-reverse items-center gap-1 md:opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out p-1">
+
                       <Popover>
                         <PopoverTrigger className="shadow-none">
                           <Button className="bg-transparent shadow-none drop-shadow-none hover:bg-white/10 dark:hover:bg-black/10 p-0 m-0 dark:text-white text-black"><EllipsisVertical size={20} /></Button>
                         </PopoverTrigger>
-                        <PopoverContent>
-                          <Link href={'#'}>Copiar Link</Link>
+                        <PopoverContent sticky="partial" align="start" side={"top"} className={`p-1 ${theme == 'light' ? 'bg-zinc-300 text-black' : 'bg-zinc-700 text-white hover:bg-zinc-600'} transition-colors duration-300 m-0 min-w-0 border-none ring-0 ring-offset-0`}>
+                          <Link className="w-fit text-sm flex flex-row items-center gap-1 px-1" href={'#'}> <CopyIcon /> Copiar Link</Link>
                         </PopoverContent>
                       </Popover>
 
-                      <Button className="text-white font-sm font-semibold font-ibmPlexMono h-[1.5rem] p-2 flex gap-1">  Ler Post <SquareArrowOutUpRight size={16} /></Button>
+                      <Dialog>
+                        <DialogTrigger>
+                          <Button className="text-white font-sm font-semibold font-ibmPlexMono h-[1.5rem] p-2 flex gap-1">  Ler Post <SquareArrowOutUpRight size={16} /></Button>
+                        </DialogTrigger>
+                        <DialogContent className={`${theme == 'light' ? 'bg-background-primary' : 'bg-background-dark'} p-0 ring-0 border-none`}>
+                          <div className="w-[45vw] h-full flex flex-col gap-5">
+                            {post.sections.map((section) => {
+                              if (section.type == 'banner') {
+                                return (
+                                  <div className="w-full h-[25rem] rounded-t-lg bg-cover" style={{ backgroundImage: `url(${section.content})` }}>
+                                    {/* <Image className={cn("w-full max-h-[20rem]")} src={section.content!} width={1000} height={1000} alt="banner"></Image> */}
+                                  </div>
+                                )
+                              }
+
+                              if (section.type == 'title') {
+                                return (<h1>{section.content}</h1>)
+                              }
+
+                              if (section.type == 'paragraph') {
+                                return (<h1 className="text-wrap w-{45vw}">{section.content}</h1>)
+                              }
+
+                              if (section.type == 'subtitle') {
+                                return (<h1>{section.content}</h1>)
+                              }
+                            })}
+                          </div>
+                        </DialogContent>
+                      </Dialog>
                     </div>
                     <div className="p-3">
                       <h1 className="text-wrap text-xl font-bold font-ibmPlexMono h-[3rem]">{title}</h1>
-                      <p className="text-sm">{DateToDDMM(post.created_at)}</p>
+                      <p className="text-sm bg-zinc-600 w-fit px-2 text-zinc-300 rounded-lg">{DateToDDMM(post.created_at)}</p>
                     </div>
-                    <div className="max-h-[25rem] p-3 pt-0">
-                      <Image className="object-fill rounded-lg max-h-[10rem]" width={1000} height={1000} src={banner!} alt="imagem"></Image>
+                    <div className="p-3 pt-0">
+                      <Image className="object-fill rounded-lg h-[10rem]" width={1000} height={1000} src={banner!} alt="imagem"></Image>
                     </div>
                   </div>
                 )
               })
-            ) : (
-              <div key={1} className={`group hover:border-[2px] hover:border-primary  cursor-pointer hover:shadow-lg hover:shadow-primary/70 text-black/70 dark:text-white w-[16rem] h-fit rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out bg-zinc-200 dark:bg-zinc-700`}>
-                <div className="p-3">
-                  <Skeleton className="text-wrap text-xl font-bold font-ibmPlexMono h-[3rem]"></Skeleton>
-                  <Skeleton className="text-sm"></Skeleton>
-                </div>
-                <div className="max-h-[25rem] p-3 pt-0">
-                  <Skeleton className="object-fill rounded-lg max-h-[10rem]" ></Skeleton>
-                </div>
-              </div>
-            )}
 
+            ) : (
+              <>
+                <div key={1} className={` hover:scale-105 transition-all duration-300 ease-in-out h-[17.8rem] w-[16rem] flex flex-col justify-between cursor-pointer text-black/70  rounded-lg bg-zinc-200 dark:bg-zinc-700`}>
+                  <div className="p-3 flex flex-col gap-3 pt-8">
+                    <Skeleton className="text-wrap text-xl font-bold font-ibmPlexMono h-[3rem]"></Skeleton>
+                    <Skeleton className="text-sm w-[3.3rem] h-[1.5rem]"></Skeleton>
+                  </div>
+                  <div className="p-3 pt-0">
+                    <Skeleton className="rounded-lg h-[9rem]" ></Skeleton>
+                  </div>
+                </div>
+                <div key={2} className={` hover:scale-105 transition-all duration-300 ease-in-out h-[17.8rem] w-[16rem] flex flex-col justify-between cursor-pointer text-black/70  rounded-lg bg-zinc-200 dark:bg-zinc-700`}>
+                  <div className="p-3 flex flex-col gap-3 pt-8">
+                    <Skeleton className="text-wrap text-xl font-bold font-ibmPlexMono h-[3rem]"></Skeleton>
+                    <Skeleton className="text-sm w-[3.3rem] h-[1.5rem]"></Skeleton>
+                  </div>
+                  <div className="p-3 pt-0">
+                    <Skeleton className="rounded-lg h-[9rem]" ></Skeleton>
+                  </div>
+                </div>
+                <div key={3} className={` hover:scale-105 transition-all duration-300 ease-in-out h-[17.8rem] w-[16rem] flex flex-col justify-between cursor-pointer text-black/70  rounded-lg bg-zinc-200 dark:bg-zinc-700`}>
+                  <div className="p-3 flex flex-col gap-3 pt-8">
+                    <Skeleton className="text-wrap text-xl font-bold font-ibmPlexMono h-[3rem]"></Skeleton>
+                    <Skeleton className="text-sm w-[3.3rem] h-[1.5rem]"></Skeleton>
+                  </div>
+                  <div className="p-3 pt-0">
+                    <Skeleton className="rounded-lg h-[9rem]" ></Skeleton>
+                  </div>
+                </div>
+                <div key={4} className={` hover:scale-105 transition-all duration-300 ease-in-out h-[17.8rem] w-[16rem] flex flex-col justify-between cursor-pointer text-black/70  rounded-lg bg-zinc-200 dark:bg-zinc-700`}>
+                  <div className="p-3 flex flex-col gap-3 pt-8">
+                    <Skeleton className="text-wrap text-xl font-bold font-ibmPlexMono h-[3rem]"></Skeleton>
+                    <Skeleton className="text-sm w-[3.3rem] h-[1.5rem]"></Skeleton>
+                  </div>
+                  <div className="p-3 pt-0">
+                    <Skeleton className="rounded-lg h-[9rem]" ></Skeleton>
+                  </div>
+                </div>
+                <div key={5} className={` hover:scale-105 transition-all duration-300 ease-in-out h-[17.8rem] w-[16rem] flex flex-col justify-between cursor-pointer text-black/70  rounded-lg bg-zinc-200 dark:bg-zinc-700`}>
+                  <div className="p-3 flex flex-col gap-3 pt-8">
+                    <Skeleton className="text-wrap text-xl font-bold font-ibmPlexMono h-[3rem]"></Skeleton>
+                    <Skeleton className="text-sm w-[3.3rem] h-[1.5rem]"></Skeleton>
+                  </div>
+                  <div className="p-3 pt-0">
+                    <Skeleton className="rounded-lg h-[9rem]" ></Skeleton>
+                  </div>
+                </div>
+                <div key={6} className={` hover:scale-105 transition-all duration-300 ease-in-out h-[17.8rem] w-[16rem] flex flex-col justify-between cursor-pointer text-black/70  rounded-lg bg-zinc-200 dark:bg-zinc-700`}>
+                  <div className="p-3 flex flex-col gap-3 pt-8">
+                    <Skeleton className="text-wrap text-xl font-bold font-ibmPlexMono h-[3rem]"></Skeleton>
+                    <Skeleton className="text-sm w-[3.3rem] h-[1.5rem]"></Skeleton>
+                  </div>
+                  <div className="p-3 pt-0">
+                    <Skeleton className="rounded-lg h-[9rem]" ></Skeleton>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </article>
 
@@ -198,13 +247,19 @@ export default function MyBlog() {
       </section>
 
       <Footer />
-      <ModalLarge open={adding} close={() => { setAdding(!adding) }}>
+      {/* MODAL READ POST */}
+
+      {/* MODAL CREATE POST */}
+      <ModalLarge open={adding} close={() => { reset() }}>
         <div className="w-full h-[80dvh] flex flex-col gap-5">
           <p className="font-ubuntu font-light text-center text-[1.5rem]">Criar Post</p>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="relative flex flex-col gap-1">
               <div className="flex flex-col items-center w-[90%] mx-auto pb-6 gap-2">
                 {watch('post').map((stretch, index) => {
+                  if (stretch.type === 'banner') {
+                    console.log(stretch.content)
+                  }
                   if (stretch.type === 'paragraph') {
                     return (
                       <div className="relative w-full" key={index}>
@@ -269,10 +324,9 @@ export default function MyBlog() {
                   }
 
                   if (stretch.type === 'banner') {
-
                     return (
-                      <div key={index} className="relative min-h-[25rem] w-full rounded-lg border-[4px] box-border border-dashed text-primary border-primary/40 hover:bg-slate-200/20">
-                        {stretch.content ? (
+                      <div key={index} className="relative md:max-h-[25rem] w-full rounded-lg border-[2px] box-border border-dashed text-primary border-primary/40 hover:bg-slate-200/20">
+                        {(stretch.content?.length ?? 0) > 0 ? (
                           <div className="relative max-h-[25rem]">
                             <div className=" absolute  h-full w-full opacity-0 hover:opacity-100 transition-all ease-in-out flex flex-col bg-zinc-300/20 justify-center items-center">
                               <Button onClick={() => { setValue(`post.${index}.content`, null) }} className="text-lg text-white bg-red-800 hover:bg-red-900 flex flex-row justify-center items-center gap-2">
@@ -280,23 +334,25 @@ export default function MyBlog() {
                                 Excluir Imagem
                               </Button>
                             </div>
-                            <Image className="object-fill max-h-[25rem]" width={1000} height={1000} src={stretch.content} alt="imagem"></Image>
+                            <Image className="object-fill max-w-full md:max-h-[25rem]" width={1000} height={1000} src={stretch.content!} alt="imagem"></Image>
                           </div>
                         ) : (
                           <>
                             <Input
                               type="file"
-                              className="w-full min-h-20 h-[25rem] cursor-pointer text-transparent opacity-0 ring-0 border-1 text-sm focus:ring-0 focus-visible:ring-0 shadow-none"
+                              className="w-full h-[5rem] md:h-[25rem] cursor-pointer text-transparent opacity-0 ring-0 border-1 text-sm focus:ring-0 focus-visible:ring-0 shadow-none"
                               {...register(`post.${index}.content`, {
                                 onChange: (e) => {
+                                  console.log(e)
                                   const file = e.target.files?.[0];
+
                                   if (file) {
                                     handleFileChange(index, file);
                                   }
                                 }
                               })}
                             />
-                            <p className="absolute left-[10%] md:left-[45%] top-[37%] flex gap-2 -z-10 hover:text-emerald-900">
+                            <p className="absolute left-[20%] md:left-[37%] top-[25%] md:top-[45%] flex gap-2 -z-10 hover:text-emerald-900">
                               <ImageIcon />
                               Selecionar o Banner
                             </p>
