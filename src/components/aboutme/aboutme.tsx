@@ -29,9 +29,10 @@ export default function About() {
             </div>
           </div>
 
-          <div className=" flex flex-col gap-10 py-12 bg-transparent w-full md:w-[40%]">
+          <div className=" flex flex-col justify-center items-center gap-10 py-12 bg-transparent w-full md:w-[40%]">
             <Player
               autoplay
+              loop={true}
               src={codingPeople}
             ></Player>
           </div>
