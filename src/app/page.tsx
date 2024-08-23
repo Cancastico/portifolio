@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <>
-      <main className={`w-full !max-w-[2560px] scroll-smooth  mx-auto`} style={{ scrollBehavior: 'smooth' }}>
+      <main className={`w-full !max-w-[1920px] scroll-smooth  mx-auto`} style={{ scrollBehavior: 'smooth' }}>
         <Navbar />
         <Header />
         <Skills />

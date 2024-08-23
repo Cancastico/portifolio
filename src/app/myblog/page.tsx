@@ -75,7 +75,7 @@ export default function MyBlog() {
 
   async function getPosts(page: number) {
     try {
-      const response = await AxiosNode.get(`/api/blogData?page=${page}`);
+      const response: any = await AxiosNode.get(`/api/blogData?page=${page}`).then(response => response).catch(() => { getPosts(page) });
       setPosts(response.data.posts);
     } catch (error) {
       console.error("Error fetching posts:", error);
@@ -142,7 +142,7 @@ export default function MyBlog() {
                           <Button className="text-white font-sm font-semibold font-ibmPlexMono h-[1.5rem] p-3 flex gap-1">  Ler Post <SquareArrowOutUpRight size={16} /></Button>
                         </div>
                         <div className="p-3">
-                          <h1 className="text-wrap text-xl font-bold font-ibmPlexMono h-[3rem]">{title}</h1>
+                          <h1 className="text-wrap flex flex-row items-start text-xl font-bold font-ibmPlexMono h-[3rem]">{title}</h1>
                           <div className="flex gap-2 items-end">
                             <p className="text-sm bg-zinc-300 text-zinc-600 dark:bg-zinc-600  w-fit px-2 dark:text-zinc-300 rounded-lg">{DateToDDMM(post.created_at)}</p>
                             <p className="text-[0.7rem] text-zinc-700 font-medium  dark:text-zinc-400   w-fit px-2 rounded-lg">{timeReading} m read time</p>

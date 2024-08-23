@@ -32,7 +32,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`relative !max-w-[1440px] mx-auto bg-background-dark font-ibmPlexMono overflow-y-auto transition-all ease-in-out scroll-smooth scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-w-1 scrollbar scrollbar-track-transparent dark:scrollbar-track-background-dark scrollbar-thumb-primary hover:scrollbar-track-[#f1f5f9]`}
+        className={`relative !max-w-[1920px] mx-auto bg-background-dark font-ibmPlexMono overflow-y-auto transition-all ease-in-out scroll-smooth scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-w-1 scrollbar scrollbar-track-transparent dark:scrollbar-track-background-dark scrollbar-thumb-primary hover:scrollbar-track-[#f1f5f9]`}
       >
         <ThemeProvider>
           {children}
