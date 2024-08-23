@@ -5,7 +5,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 export default function About() {
   return (
     <div className=" flex flex-col min-h-[10rem]" >
-      <section className="w-full min-h-[10rem] relative bg-cover bg-center" style={{backgroundImage:`url(${background.src})`}}>
+      <section className="w-full min-h-[10rem] relative bg-cover bg-center" style={{ backgroundImage: `url(${background.src})` }}>
         {/* <Image
           src={background}
           alt="Skills Background"
@@ -22,14 +22,15 @@ export default function About() {
               <p className="text-sm text-primary font-semibold bg-transparent">{`</h1>`}</p>
               <p className="text-sm text-primary font-semibold bg-transparent">{`<p>`}</p>
               <p className="text-white w-full text-lg pl-3 leading-8 md:leading-10 font-ibmPlexMono indent-8 text-justify bg-transparent" >
-                Sou apaixonado por jogos eletrônicos, especialmente por The Witcher, e tenho um grande interesse por animes e a cultura geek em geral. Desde cedo, sempre fui fascinado por computadores, o que me levou a descobrir a programação. Comecei a aprender programação em 2018 através de um curso da Mastertech em parceria com o Facebook, onde me encontrei na área de desenvolvimento. Atualmente, estou no 8º semestre do bacharelado em Ciência da Computação e estou sempre em busca de aprender coisas novas e inovar.
-              </p>
+                Sou um programador Fullstack apaixonado por inovação e tecnologia, com um forte foco em Node.js e React.js, utilizando frameworks como <a href='https://nextjs.org/' target='_blank' className='font-semibold underline text-primary hover:text-primary/80 transition-opacity'>Next.js</a>  e <a href='https://nestjs.com/' target='_blank' className='font-semibold underline text-primary hover:text-primary/80 transition-opacity'>Nest.js</a>. Com uma sólida base técnica e habilidades em WordPress, Docker, MySQL, PostgreSQL, SQL Server, CI/CD, Express.js, JWT e Prisma ORM, estou sempre em busca de novos desafios para expandir meu conhecimento e impactar positivamente os projetos em que atuo.              </p>
+              <p className="text-white w-full text-lg pl-3 leading-8 md:leading-10 font-ibmPlexMono indent-8 text-justify bg-transparent" >
+                Minhas qualidades incluem uma comunicação eficaz, liderança e gerenciamento de equipe, além de ser resiliente e inovador. Tenho experiência em trabalhar em ambientes dinâmicos, onde a adaptação rápida e a capacidade de encontrar soluções criativas são essenciais. Meu objetivo é sempre agregar valor ao time e entregar resultados que superem as expectativas.              </p>
               <p className="text-sm text-primary font-semibold bg-transparent">{`</p>`}</p>
             </div>
           </div>
-          
+
           <div className=" flex flex-col gap-10 py-12 bg-transparent w-full md:w-[40%]">
-          <Player
+            <Player
               autoplay
               src={codingPeople}
             ></Player>

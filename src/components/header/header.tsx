@@ -2,7 +2,6 @@
 import Perfil from "@/../public/ImagemPerfil.png";
 import { Briefcase, Link, Mail, MapPin } from "lucide-react";
 import Image from "next/image";
-import Navbar from "../navbar/navbar";
 
 export default function Header() {
 
@@ -11,8 +10,8 @@ export default function Header() {
   return (
     <div id="home" className="flex flex-col w-full ">
 
-      <Navbar></Navbar>
-      <header className="flex flex-col items-center bg-background-primary dark:bg-background-dark pb-[2rem] min-h-[80dvh] justify-center md:px-[8rem] xxl:px-[16rem]">
+
+      <header className="flex flex-col items-center bg-background-primary dark:bg-background-dark pb-[2rem] min-h-[80dvh] justify-center md:px-[8rem] xxl:px-[16rem] pt-12">
 
         {/* TITLE */}
         <div>
@@ -89,7 +88,7 @@ export default function Header() {
           </div>
 
           {/* EXPERIENCE */}
-          <div className="flex items-center w-full  md:w-[20%]">
+          <div className="flex items-center w-full md:hidden lg:flex  md:w-[20%]">
             <div className="font-medium font-ibmPlexMono p-8 bg-slate-800 mx-auto md:bg-transparent md:mx-0 w-[90%] md:w-fit ">
               <p className="!text-sm text-primary font-semibold">{`<ul>`}</p>
               <ul className="flex flex-col gap-3">

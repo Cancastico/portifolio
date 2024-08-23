@@ -108,7 +108,7 @@ export default function MyBlog() {
     <>
       <title> Cancastico | Blog</title>
       <Navbar />
-      <section className="relative">
+      <section className="relative pt-12">
         <article className="w-full min-h-[100dvh] bg-background-primary dark:bg-background-dark md:px-[8rem] xxl:px-[16rem]">
           <div className="w-full flex flex-col items-start px-4 md:items-start">
             <p className="text-sm text-primary font-semibold">{`<h1>`}</p>

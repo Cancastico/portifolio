@@ -18,7 +18,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="relative flex flex-row justify-between items-center w-full h-20 bg-background-primary dark:bg-background-dark md:px-[8rem] xxl:px-[16rem]">
+    <header className="fixed flex flex-row justify-between items-center w-full h-12 md:h-20 bg-background-primary dark:bg-background-dark md:px-[8rem] xxl:px-[16rem] z-20">
       <div className="md:hidden flex items-center px-3">
         <SideBar
           trigger={
