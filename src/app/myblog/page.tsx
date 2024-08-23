@@ -6,28 +6,27 @@ import AutoResizeTextarea from "@/components/input/textAreaAutoResize";
 import ModalLarge from "@/components/modals/modalLarge";
 import Navbar from "@/components/navbar/navbar";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useAuthContext } from "@/contexts/authContext";
+import { useTheme } from "@/contexts/theme";
+import { cn } from "@/lib/utils";
 import { AxiosNode } from "@/services/axios";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CopyIcon, EllipsisVertical, Image as ImageIcon, Pilcrow, PlusIcon, SquareArrowOutUpRight, Trash } from "lucide-react";
+import { Image as ImageIcon, Pilcrow, PlusIcon, SquareArrowOutUpRight, Trash } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
 import { z } from "zod";
 import { DateToDDMM } from "../utils/converters/dateToDDMM";
 import { fileToBase64 } from "../utils/converters/fileToBase64";
-import { Skeleton } from "@/components/ui/skeleton";
-import { useTheme } from "@/contexts/theme";
-import { useRouter } from "next/navigation";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { cn } from "@/lib/utils";
 
-import { calcReadTime } from "../utils/converters/calcReadTime";
+import { resizeImage } from "@/lib/resizeImage";
 import { Prisma } from "@prisma/client";
+import { calcReadTime } from "../utils/converters/calcReadTime";
 
 const postSchema = z.object({
   post: z.array(
@@ -42,7 +41,9 @@ type FormValues = z.infer<typeof postSchema>;
 
 export default function MyBlog() {
   const { isAuthenticated } = useAuthContext();
-  const { theme } = useTheme()
+
+  const { theme } = useTheme();
+
   const [adding, setAdding] = useState<boolean>(false);
   const [popoverOpen, setPopoverOpen] = useState<boolean>(false);
   const [posts, setPosts] = useState<Prisma.PostGetPayload<{ include: { sections: true, author: true } }>[]>([]);
@@ -59,11 +60,13 @@ export default function MyBlog() {
     }
   });
 
+
+
   async function handleFileChange(index: number, file: File) {
     try {
-      const base64String = await fileToBase64(file);
+
       const currentPost = getValues('post');
-      currentPost[index].content = base64String;
+      currentPost[index].content = await fileToBase64(await resizeImage(file));
       setValue('post', currentPost);
     } catch (error) {
       toast.error("Erro ao converter o arquivo para base64");
@@ -156,16 +159,15 @@ export default function MyBlog() {
                         {post.sections.map((section, index) => {
                           if (section.type == 'banner') {
                             return (
-                              <div key={index} className="w-full h-[13rem] rounded-t-lg bg-cover" style={{ backgroundImage: `url(${section.content})` }}>
+                              <div key={index} className="w-full h-[13rem] rounded-t-lg bg-cover " style={{ backgroundImage: `url(${section.content})` }}>
                                 {/* <Image className={cn("w-full max-h-[20rem]")} src={section.content!} width={1000} height={1000} alt="banner"></Image> */}
                               </div>
                             )
                           }
 
                           if (section.type == 'image') {
-                            console.log('Imagem Computada')
                             return (
-                              <div key={index} className="w-[100dvw] md:w-[45dvw] min-h-[10rem] rounded-t-lg bg-cover px-[1rem] md:px-[3rem]">
+                              <div key={index} className="w-[100dvw] md:w-[45dvw] py-4 min-h-[10rem] rounded-t-lg bg-cover px-[1rem] md:px-[3rem]">
                                 <Image className={cn("w-full")} src={section.content!} width={1000} height={1000} alt="banner"></Image>
                               </div>
                             )
