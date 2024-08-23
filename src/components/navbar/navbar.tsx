@@ -5,15 +5,24 @@ import Link from "next/link";
 import SideBar from "../sidebar/sidebar";
 import ThemingButton from "../themingButton/themingButton";
 import { Button } from "../ui/button";
+import { useRef } from "react";
 
 export default function Navbar() {
-  const { theme } = useTheme()
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const { theme } = useTheme();
+
+  const emulateClick = () => {
+    if (buttonRef.current) {
+      buttonRef.current.click();
+    }
+  };
+
   return (
     <header className="relative flex flex-row justify-between items-center w-full h-20 bg-background-primary dark:bg-background-dark md:px-[8rem] xxl:px-[16rem]">
       <div className="md:hidden flex items-center px-3">
         <SideBar
           trigger={
-            <Button id="buttonHamburguer">
+            <Button ref={buttonRef}>
               <MenuIcon size={24} />
             </Button>
           }
@@ -26,16 +35,16 @@ export default function Navbar() {
           <nav className="flex flex-col gap-20 px-8 pt-5">
             <ul className="flex flex-col gap-3 items-start text-lg">
               <li>
-                <Link className={`${theme == 'light' ? 'text-black' : 'text-white'} hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-200`} href="/">Home</Link>
+                <a onClick={emulateClick} className={`${theme == 'light' ? 'text-black' : 'text-white'} hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-200`} href="/">Home</a>
               </li>
               <li>
-                <Link className={`${theme == 'light' ? 'text-black' : 'text-white'} hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100`} href="/myblog">Meu Blog</Link>
+                <a onClick={emulateClick} className={`${theme == 'light' ? 'text-black' : 'text-white'} hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100`} href="/myblog">Meu Blog</a>
               </li>
               <li>
-                <Link className={`${theme == 'light' ? 'text-black' : 'text-white'} hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100`} href="/#projetos">Projetos</Link>
+                <a onClick={emulateClick} className={`${theme == 'light' ? 'text-black' : 'text-white'} hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100`} href="/#projetos">Projetos</a>
               </li>
               <li>
-                <Link className={`${theme == 'light' ? 'text-black' : 'text-white'} hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100`} href="/#contato">Contato</Link>
+                <a onClick={emulateClick} className={`${theme == 'light' ? 'text-black' : 'text-white'} hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100`} href="/#contato">Contato</a>
               </li>
               <li className="hover:text-primary flex gap-2 hover:underline duration-100">
                 <a className={`${theme == 'light' ? 'text-black' : 'text-white'} flex gap-2 hover:text-primary font-medium transition-all duration-100`} target="_blank" href="https://github.com/Cancastico">

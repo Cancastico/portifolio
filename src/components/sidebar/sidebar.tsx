@@ -13,13 +13,13 @@ type Props = {
 }
 
 export default function SideBar({ trigger, children, side, title }: Props) {
-  const {theme} = useTheme()
+  const { theme } = useTheme()
   return (
-    <Sheet>
-      <SheetTrigger asChild>
+    <Sheet modal >
+      <SheetTrigger>
         {trigger}
       </SheetTrigger>
-      <SheetContent side={side} aria-describedby={undefined} className={`sm:!max-w-none ${theme == 'light' ? 'bg-background-primary':'bg-background-dark'}`}>
+      <SheetContent side={side} className={`sm:!max-w-none ${theme == 'light' ? 'bg-background-primary' : 'bg-background-dark'}`}>
         <SheetHeader>
           <SheetTitle>{title}</SheetTitle>
         </SheetHeader>
