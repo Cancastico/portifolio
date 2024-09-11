@@ -27,7 +27,7 @@ export default function Projects() {
         <p className="text-[2.5rem] text-primary font-light font-ubuntu px-3">Meus projetos</p>
         <p className="text-sm text-primary font-semibold">{`</h1>`}</p>
       </div>
-      <div className="py-10 flex  md:flex-col items-center w-full gap-10 flex-wrap md:justify-evenly md:items-start">
+      <div className="py-10 flex flex-wrap items-center w-full gap-10 justify-evenly md:justify-start lg:items-start">
         {projects.map((project, index) => {
           return (
             <div key={index} className="w-[18rem] md:w-[20rem] rounded-lg   shadow-lg shadow-black/30 dark:shadow-white/10 dark:border-slate-700 border-slate-400 border-[1px] transition-all duration-300 ease-in-out transform hover:scale-105 hover:cursor-pointer">
@@ -43,7 +43,7 @@ export default function Projects() {
                 />
                 <div className="w-full pt-3 pb-0 bg-white dark:bg-zinc-500 rounded-b-lg flex flex-col gap-3">
                   <h1 className="w-full px-3 font-semibold text-lg dark:text-white bg-white dark:bg-zinc-500"> {project.title}</h1>
-                  <p className="w-[100%] px-3 pb-2 bg-white dark:text-white dark:bg-zinc-500 text-justify text-sm text-background-dark/80">{project.description}</p>
+                  <p className="w-[100%] h-[4rem] px-3 pb-2 bg-white dark:text-white dark:bg-zinc-500 text-justify text-sm text-background-dark/80">{project.description}</p>
                   <div>
 
                     <Separator className="w-full bg-zinc-600"></Separator>

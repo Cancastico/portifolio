@@ -111,16 +111,16 @@ export default function Contact() {
         <div className="w-full flex flex-col md:flex-row  gap-[1.8rem]  bg-transparent">
 
           <ZodInputContainer className="w-[100%]" error={undefined} label="Nome">
-            <Input id='name' placeholder="Digite seu Nome" className="bg-background-primary  text-black placeholder:text-background-dark roundex-sm w-full" {...register('name')} />
+            <Input id='name' placeholder="Digite seu Nome" className="bg-background-primary  text-black dark:text-black placeholder:text-background-dark roundex-sm w-full" {...register('name')} />
           </ZodInputContainer>
 
           <ZodInputContainer className="w-[100%]" error={errors.email} label="Email">
-            <Input id='email' placeholder="Digite seu E-mail" className="bg-background-primary text-black placeholder:text-background-dark roundex-sm w-full" {...register('email')} />
+            <Input id='email' placeholder="Digite seu E-mail" className="bg-background-primary text-black dark:text-black placeholder:text-background-dark roundex-sm w-full" {...register('email')} />
           </ZodInputContainer>
         </div>
 
         <ZodInputContainer error={undefined} label="Mensagem">
-          <Textarea id='message' placeholder="Escreva sua mensagem" className="bg-background-primary text-black placeholder:text-background-dark h-[13rem] w-full resize-none scroll-smooth" maxLength={512} {...register('message')} />
+          <Textarea id='message' placeholder="Escreva sua mensagem" className="bg-background-primary text-black dark:text-black placeholder:text-background-dark h-[13rem] w-full resize-none scroll-smooth" maxLength={512} {...register('message')} />
         </ZodInputContainer>
 
         <div className='w-full flex flex-row-reverse bg-transparent'>
