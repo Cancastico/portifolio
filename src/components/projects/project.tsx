@@ -1,5 +1,6 @@
 import Image, { StaticImageData } from "next/image"
 import todo from '@/../public/Projetos/todo-task.png';
+import cms from "@/../public/Cms.png"
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 
@@ -12,6 +13,12 @@ export default function Projects() {
       imagem: todo,
       link: "https://todo-cancasticos-projects.vercel.app/"
     },
+    {
+      title: "CMS de Usuarios",
+      description: "Projeto pra gerenciar Usuarios e Empresas dentro de um Saas",
+      imagem: cms,
+      link: "https://github.com/Cancastico/cms-user-company"
+    },
   ]
   return (
     <div id="projetos" className="bg-background-primary dark:bg-background-dark flex flex-col justify-center w-full items-start py-10  md:px-[8rem] xxl:px-[16rem]" >
@@ -20,7 +27,7 @@ export default function Projects() {
         <p className="text-[2.5rem] text-primary font-light font-ubuntu px-3">Meus projetos</p>
         <p className="text-sm text-primary font-semibold">{`</h1>`}</p>
       </div>
-      <div className="py-10 flex flex-col items-center w-full gap-10 flex-wrap md:justify-evenly md:items-start">
+      <div className="py-10 flex  md:flex-col items-center w-full gap-10 flex-wrap md:justify-evenly md:items-start">
         {projects.map((project, index) => {
           return (
             <div key={index} className="w-[18rem] md:w-[20rem] rounded-lg   shadow-lg shadow-black/30 dark:shadow-white/10 dark:border-slate-700 border-slate-400 border-[1px] transition-all duration-300 ease-in-out transform hover:scale-105 hover:cursor-pointer">
