@@ -9,7 +9,8 @@ export async function GET(req: NextRequest) {
       posts: await prisma.post.findMany({
         take: 20,
         skip: parseInt(new URL(req.url).searchParams.get('page') as string, 10) * 20,
-        include: { author: true, sections: true }
+        include: { author: true, sections: true },
+        orderBy:{created_at:'desc'}
       })
     });
   } catch (error) {
