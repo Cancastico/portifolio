@@ -37,9 +37,9 @@ export default function Navbar() {
               <li>
                 <a onClick={emulateClick} className={`${theme == 'light' ? 'text-black' : 'text-white'} hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-200`} href="/">Home</a>
               </li>
-              <li>
+              {/* <li>
                 <a onClick={emulateClick} className={`${theme == 'light' ? 'text-black' : 'text-white'} hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100`} href="/myblog">Meu Blog</a>
-              </li>
+              </li> */}
               <li>
                 <a onClick={emulateClick} className={`${theme == 'light' ? 'text-black' : 'text-white'} hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100`} href="/#projetos">Projetos</a>
               </li>
@@ -65,9 +65,9 @@ export default function Navbar() {
           <li>
             <Link className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-200" href="/">Home</Link>
           </li>
-          <li>
+          {/* <li>
             <Link className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100" href="/myblog">Meu Blog</Link>
-          </li>
+          </li> */}
           <li>
             <Link className=" text-black dark:text-white hover:text-primary hover:underline dark:hover:text-primary dark:hover:underline font-medium transition-all duration-100" href="/#projetos">Projetos</Link>
           </li>
