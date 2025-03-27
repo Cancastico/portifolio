@@ -1,7 +1,6 @@
 import submitedAnimation from '@/../public/sucessSubmit.json';
 import { useForm as formSpree } from '@formspree/react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Player } from '@lottiefiles/react-lottie-player';
 import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -12,6 +11,9 @@ import { Button } from '../ui/button';
 import { Input } from "../ui/input";
 import Loading from '../ui/loading';
 import { Textarea } from "../ui/textarea";
+import dynamic from 'next/dynamic';
+
+const Player = dynamic(() => import("@lottiefiles/react-lottie-player").then(mod => mod.Player), { ssr: false });
 
 export default function Contact() {
   const [submiting, setSubmiting] = useState<boolean>(false);

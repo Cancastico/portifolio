@@ -12,9 +12,9 @@
   "dependencies": {
     "@formspree/react": "^2.5.1",
     "@hookform/resolvers": "^3.9.0",
-    "@lottiefiles/dotlottie-react": "^0.8.7",
-    "@lottiefiles/lottie-player": "^2.0.4",
-    "@lottiefiles/react-lottie-player": "^3.5.4",
+    "@lottiefiles/dotlottie-react": "^0.13.2",
+    "@lottiefiles/lottie-player": "^2.0.12",
+    "@lottiefiles/react-lottie-player": "^3.6.0",
     "@next/font": "^14.2.5",
     "@prisma/client": "^5.18.0",
     "@radix-ui/react-dialog": "^1.1.1",

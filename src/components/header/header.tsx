@@ -43,7 +43,7 @@ export default function Header() {
                 </li>
                 <li className="flex flex-row gap-1 text-primary items-center">
                   <Link size={16} />
-                  <a className=" text-black dark:text-white dark:hover:text-primary" href="#">www.cancastico.com.br</a>
+                  <a className=" text-black dark:text-white dark:hover:text-primary" href="https://portifolio-cancasticos-projects.vercel.app/">portifolio-cancasticos-projects.vercel.app</a>
                 </li>
               </ul>
             </div>

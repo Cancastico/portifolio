@@ -10,7 +10,6 @@ import Skills from '@/components/skills/skills';
 export default function Home() {
 
   return (
-    <>
       <main className={`w-full !max-w-[1920px] scroll-smooth  mx-auto`} style={{ scrollBehavior: 'smooth' }}>
         <Navbar />
         <Header />
@@ -21,6 +20,5 @@ export default function Home() {
         <Footer />
 
       </main>
-    </>
   );
 }

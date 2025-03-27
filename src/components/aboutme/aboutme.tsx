@@ -1,18 +1,13 @@
 import background from '@/../public/backgroundAboutme.png';
 import codingPeople from '@/../public/codingPeople.json';
-import { Player } from "@lottiefiles/react-lottie-player";
+import dynamic from 'next/dynamic';
+const Player = dynamic(() => import("@lottiefiles/react-lottie-player").then(mod => mod.Player), { ssr: false });
 
 export default function About() {
   return (
     <div className=" flex flex-col min-h-[10rem]" >
       <section className="w-full min-h-[10rem] relative bg-cover bg-center" style={{ backgroundImage: `url(${background.src})` }}>
-        {/* <Image
-          src={background}
-          alt="Skills Background"
-          layout="fill"
-          objectFit="cover"
-          className="pointer-events-none -z-10"
-        /> */}
+
         {/* CONTENT */}
         <div className="flex flex-col w-full justify-between bg-[#010021]/70 dark:bg-[#15282E]/90 px-[1rem] md:px-[8rem] xxl:px-[16rem] md:flex-row">
           <div className=" flex flex-col gap-10 py-12 h-full w-full md:w-[60%] bg-transparent ">
