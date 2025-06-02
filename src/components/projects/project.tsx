@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from "next/image"
-import todo from '@/../public/Projetos/todo-task.png';
-import coffee from "@/../public/paymecoffee.jpg"
+import todo from '@/assets/todo-task.png';
+import coffee from '@/assets/paymecoffee.jpg';
+import vesti from '@/assets/desafio-vesti.png';
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import { Github } from "lucide-react";
@@ -14,6 +15,13 @@ export default function Projects() {
       imagem: todo,
       github_link:'https://github.com/Cancastico/Todo',
       link: "https://todo-cancasticos-projects.vercel.app/"
+    },
+    {
+      title: "Desafio Vesti",
+      description: "Processo seletivo da empresa Vesti",
+      imagem: vesti,
+      github_link:'https://github.com/Cancastico/desafio-vesti',
+      link: "https://desafio-vesti.vercel.app/"
     },
     {
       title: "Pague-me um Café",
@@ -33,7 +41,7 @@ export default function Projects() {
       <div className="py-10 flex flex-wrap items-center w-full gap-10 justify-evenly md:justify-start lg:items-start">
         {projects.map((project, index) => {
           return (
-            <div key={index} className="w-[18rem] md:w-[20rem] rounded-lg   shadow-lg shadow-black/30 dark:shadow-white/10 dark:border-slate-700 border-slate-400 border-[1px] transition-all duration-300 ease-in-out transform hover:scale-105 hover:cursor-pointer">
+            <div key={index} className="w-[18rem] md:w-[20rem] rounded-lg   shadow-lg shadow-black/30 dark:shadow-white/10 dark:border-slate-700 border-slate-400 border-[1px] transition-all duration-300 ease-in-out transform hover:scale-105">
 
               <Image
                 className="w-full h-full max-h-36 object-cover rounded-t-lg "
